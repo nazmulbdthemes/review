@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       BDT Blocks
+ * Plugin Name:       Review
  * Description:       Starter plugin for creating Gutenberg blocks with zero configuration.
  * Requires at least: 5.7
  * Requires PHP:      7.0
