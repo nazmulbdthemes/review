@@ -2,14 +2,14 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/blocks/boilerplate/attributes.js":
-/*!**********************************************!*\
-  !*** ./src/blocks/boilerplate/attributes.js ***!
-  \**********************************************/
+/***/ "./src/blocks/review/attributes.js":
+/*!*****************************************!*\
+  !*** ./src/blocks/review/attributes.js ***!
+  \*****************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./src/blocks/boilerplate/constants/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./src/blocks/review/constants/index.js");
 /* harmony import */ var _generators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../generators */ "./src/generators/index.js");
 
 
@@ -51,10 +51,10 @@ const attributes = {
 
 /***/ }),
 
-/***/ "./src/blocks/boilerplate/constants/index.js":
-/*!***************************************************!*\
-  !*** ./src/blocks/boilerplate/constants/index.js ***!
-  \***************************************************/
+/***/ "./src/blocks/review/constants/index.js":
+/*!**********************************************!*\
+  !*** ./src/blocks/review/constants/index.js ***!
+  \**********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -65,10 +65,10 @@ const GRID_COLUMNS = 'gridColumns';
 
 /***/ }),
 
-/***/ "./src/blocks/boilerplate/edit.js":
-/*!****************************************!*\
-  !*** ./src/blocks/boilerplate/edit.js ***!
-  \****************************************/
+/***/ "./src/blocks/review/edit.js":
+/*!***********************************!*\
+  !*** ./src/blocks/review/edit.js ***!
+  \***********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -81,8 +81,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/boilerplate/editor.scss");
-/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./inspector */ "./src/blocks/boilerplate/inspector.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/review/editor.scss");
+/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./inspector */ "./src/blocks/review/inspector.js");
 /* harmony import */ var _helper_softminify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../helper/softminify */ "./src/helper/softminify.js");
 
 
@@ -178,20 +178,20 @@ function Edit(_ref) {
 
 /***/ }),
 
-/***/ "./src/blocks/boilerplate/index.js":
-/*!*****************************************!*\
-  !*** ./src/blocks/boilerplate/index.js ***!
-  \*****************************************/
+/***/ "./src/blocks/review/index.js":
+/*!************************************!*\
+  !*** ./src/blocks/review/index.js ***!
+  \************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/boilerplate/style.scss");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./block.json */ "./src/blocks/boilerplate/block.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/blocks/boilerplate/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/blocks/boilerplate/save.js");
-/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./attributes */ "./src/blocks/boilerplate/attributes.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/review/style.scss");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./block.json */ "./src/blocks/review/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/blocks/review/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/blocks/review/save.js");
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./attributes */ "./src/blocks/review/attributes.js");
 
 
 
@@ -218,10 +218,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/boilerplate/inspector.js":
-/*!*********************************************!*\
-  !*** ./src/blocks/boilerplate/inspector.js ***!
-  \*********************************************/
+/***/ "./src/blocks/review/inspector.js":
+/*!****************************************!*\
+  !*** ./src/blocks/review/inspector.js ***!
+  \****************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -233,9 +233,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ "./src/blocks/boilerplate/constants/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ "./src/blocks/review/constants/index.js");
 /* harmony import */ var _controls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../controls */ "./src/controls/index.js");
-/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attributes */ "./src/blocks/boilerplate/attributes.js");
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attributes */ "./src/blocks/review/attributes.js");
 
 
 /**
@@ -306,10 +306,10 @@ const Inspector = _ref => {
 
 /***/ }),
 
-/***/ "./src/blocks/boilerplate/save.js":
-/*!****************************************!*\
-  !*** ./src/blocks/boilerplate/save.js ***!
-  \****************************************/
+/***/ "./src/blocks/review/save.js":
+/*!***********************************!*\
+  !*** ./src/blocks/review/save.js ***!
+  \***********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -575,10 +575,10 @@ const softMinifyCssStrings = function () {
 
 /***/ }),
 
-/***/ "./src/blocks/boilerplate/editor.scss":
-/*!********************************************!*\
-  !*** ./src/blocks/boilerplate/editor.scss ***!
-  \********************************************/
+/***/ "./src/blocks/review/editor.scss":
+/*!***************************************!*\
+  !*** ./src/blocks/review/editor.scss ***!
+  \***************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -587,10 +587,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/boilerplate/style.scss":
-/*!*******************************************!*\
-  !*** ./src/blocks/boilerplate/style.scss ***!
-  \*******************************************/
+/***/ "./src/blocks/review/style.scss":
+/*!**************************************!*\
+  !*** ./src/blocks/review/style.scss ***!
+  \**************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -671,13 +671,13 @@ module.exports = window["wp"]["i18n"];
 
 /***/ }),
 
-/***/ "./src/blocks/boilerplate/block.json":
-/*!*******************************************!*\
-  !*** ./src/blocks/boilerplate/block.json ***!
-  \*******************************************/
+/***/ "./src/blocks/review/block.json":
+/*!**************************************!*\
+  !*** ./src/blocks/review/block.json ***!
+  \**************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"bdt/boilerplate","version":"0.1.0","title":"Review","category":"bdt-blocks","description":"Simple bootstrap block description.","supports":{"html":false,"anchor":true},"textdomain":"bdt-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"bdt/review","version":"0.1.0","title":"Review","category":"bdt-blocks","description":"Simple bootstrap block description.","supports":{"html":false,"anchor":true},"textdomain":"bdt-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
@@ -793,8 +793,8 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"bdt/boilerplate","version":
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"blocks/boilerplate/index": 0,
-/******/ 			"blocks/boilerplate/style-index": 0
+/******/ 			"blocks/review/index": 0,
+/******/ 			"blocks/review/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -846,7 +846,7 @@ module.exports = JSON.parse('{"apiVersion":2,"name":"bdt/boilerplate","version":
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/boilerplate/style-index"], function() { return __webpack_require__("./src/blocks/boilerplate/index.js"); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/review/style-index"], function() { return __webpack_require__("./src/blocks/review/index.js"); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -9,7 +9,7 @@
  * Author URI:        https://bdthemes.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       bdt-blocks
+ * Text Domain:       bdt-review-blocks
  *
  * @package           @wordpress/create-block 
  */
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Final Class BDT Blocks
  */
 
-final class BDT_BLOCKS_CLASS {
+final class BDT_REVIEW_BLOCKS_CLASS {
 	
 	private static $instance;
 
@@ -82,7 +82,7 @@ final class BDT_BLOCKS_CLASS {
      */
     public function check_php_version(){
         $message = sprintf(
-            esc_html__( 'BDT Blocks requires minimum PHP version %s where your current PHP version is %2s. Please update your PHP version to enable BDT Blocks features. ', 'bdt-blocks' ),
+            esc_html__( 'BDT Review Blocks requires minimum PHP version %s where your current PHP version is %2s. Please update your PHP version to enable BDT Blocks features. ', 'bdt-review-blocks' ),
             '5.6',
             ZOLO_PHP_VERSION
         );
@@ -95,7 +95,7 @@ final class BDT_BLOCKS_CLASS {
      */
     public function check_wp_version(){
         $message = sprintf(
-            esc_html__( 'BDT Blocks requires minimum WordPress version %s where your current WordPress version is %2s. Please update your WordPress version to enable BDT Blocks features. ', 'bdt-blocks' ),
+            esc_html__( 'BDT Review Blocks requires minimum WordPress version %s where your current WordPress version is %2s. Please update your WordPress version to enable BDT Blocks features. ', 'bdt-review-blocks' ),
             '5.8',
             ZOLO_WP_VERSION
         );
@@ -115,13 +115,13 @@ final class BDT_BLOCKS_CLASS {
         $class = 'notice notice-error';
         /* translators: %s: html tags */
         $message = sprintf(
-            __( 'The <%1$s>%2$s</%1$s> plugin requires <%1$s>Gutenberg</%1$s> plugin installed & activated.', 'bdt-blocks' ),
+            __( 'The <%1$s>%2$s</%1$s> plugin requires <%1$s>Gutenberg</%1$s> plugin installed & activated.', 'bdt-review-blocks' ),
             $tag = 'strong',
             ZOLO_NAME
         );
 
         $action_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=gutenberg' ), 'install-plugin_gutenberg' );
-        $button_label = __( 'Install Gutenberg', 'bdt-blocks' );
+        $button_label = __( 'Install Gutenberg', 'bdt-review-blocks' );
 
         $button = '<p><a href="' . $action_url . '" class="button-primary">' . $button_label . '</a></p><p></p>';
 
@@ -155,9 +155,9 @@ final class BDT_BLOCKS_CLASS {
 /**
  * Kickoff
 */
-function bdt_blocks(){
-	return BDT_BLOCKS_CLASS::instance();
+function bdt_review_blocks(){
+	return BDT_REVIEW_BLOCKS_CLASS::instance();
 }
 
 // start plugin
-bdt_blocks();
+bdt_review_blocks();
