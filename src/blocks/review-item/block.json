@@ -1,8 +1,8 @@
 {
 	"apiVersion": 2,
-	"name": "bdt/review",
+	"name": "bdt/review-item",
 	"version": "0.1.0",
-	"title": "Review",
+	"title": "Review Item",
 	"category": "bdt-blocks",
 	"description": "Simple bootstrap block description.",
 	"supports": {

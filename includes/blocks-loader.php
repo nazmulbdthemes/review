@@ -100,6 +100,7 @@ class BDT_BLOCKS_LOADER {
             BDT_DIR_PATH . './build/blocks/' . $block['name'],
             isset( $block['args'] ) ? $block['args'] : []
         );
+        
     }
 
     /**
