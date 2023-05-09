@@ -5,6 +5,6 @@
 
  $bdt_blocks = [
     [
-        'name' => 'boilerplate',
+        'name' => 'review',
     ]
 ];
