@@ -8,4 +8,19 @@
   border: 1px dotted #010101;
 }
 
+.bdt-tab-panel .bdt-tab {
+  width: 100%;
+  background: #dbe8e8;
+  justify-content: center;
+  border-right: 2px solid #cfc2c2;
+  border-top: 2px solid #0000;
+}
+.bdt-tab-panel .bdt-tab:hover {
+  color: unset;
+}
+.bdt-tab-panel .bdt-tab.active-tab {
+  border-top: 2px solid #9e6e01;
+  background: #d4cece;
+}
+
 /*# sourceMappingURL=index.css.map*/
