@@ -84,6 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/review/editor.scss");
 /* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./inspector */ "./src/blocks/review/inspector.js");
 /* harmony import */ var _helper_softminify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../helper/softminify */ "./src/helper/softminify.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/review/style.scss");
 
 
 /* eslint-disable no-console */
@@ -98,6 +99,7 @@ const {
 /**
  * Internal dependencies
  */
+
 
 
 
@@ -157,22 +159,10 @@ function Edit(_ref) {
     setAttributes: setAttributes
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: uniqueId
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    tagName: "h2",
-    className: "bdt-title",
-    value: title,
-    onChange: content => setAttributes({
-      title: content
-    }),
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write title…', 'bdt-blocks')
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    tagName: "p",
-    className: "bdt-description",
-    value: description,
-    onChange: content => setAttributes({
-      description: content
-    }),
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write description…', 'bdt-blocks')
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    allowedBlocks: ['bdt/review-item'],
+    template: [['bdt/review-item'], ['bdt/review-item'], ['bdt/review-item']],
+    renderAppender: () => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.ButtonBlockAppender, null)
   })));
 }
 

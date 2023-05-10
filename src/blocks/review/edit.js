@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
 const { Fragment, useEffect } = wp.element;
 
@@ -12,6 +12,7 @@ import './editor.scss';
  */
 import Inspector from './inspector';
 import { softMinifyCssStrings } from '../../helper/softminify';
+import './style.scss';
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
@@ -68,7 +69,18 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					className: uniqueId,
 				})}
 			>
-				<RichText
+					<InnerBlocks
+						allowedBlocks={['bdt/review-item']}
+						template={[
+							['bdt/review-item'],
+							['bdt/review-item'],
+							['bdt/review-item'],
+						]}
+						renderAppender={() => (
+							<InnerBlocks.ButtonBlockAppender />
+						)}
+					/>
+				{/* <RichText
 					tagName="h2"
 					className="bdt-title"
 					value={title}
@@ -83,7 +95,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						setAttributes({ description: content })
 					}
 					placeholder={__('Write description…', 'bdt-blocks')}
-				/>
+				/> */}
 			</div>
 		</Fragment>
 	);
