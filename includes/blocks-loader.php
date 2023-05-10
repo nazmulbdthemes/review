@@ -12,7 +12,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /**
  * Blocks Loader Class
  */
-class BDT_BLOCKS_LOADER {
+class BDT_REVIEW_BLOCKS_LOADER {
 
     /**
      * Constructor
@@ -23,7 +23,7 @@ class BDT_BLOCKS_LOADER {
         add_action( 'init', [ $this, 'register_blocks' ] );
         
         //Register Block Category
-        if ( version_compare( BDT_WP_VERSION, '5.8', '>=' ) ) {
+        if ( version_compare( BDT_REVIEW_WP_VERSION, '5.8', '>=' ) ) {
             add_filter( 'block_categories_all', [ $this, 'register_block_category' ], 99999, 2 );
         } else {
             add_filter( 'block_categories', [ $this, 'register_block_category' ], 99999, 2 );
@@ -45,9 +45,9 @@ class BDT_BLOCKS_LOADER {
     public function enqueue_editor_assets(){
         wp_enqueue_script(
             'bdt-blocks-global-js',
-            BDT_ADMIN_URL . './dist/global.js',
+            BDT_REVIEW_ADMIN_URL . './dist/global.js',
             [],
-            BDT_VERSION,
+            BDT_REVIEW_VERSION,
             true
         );
     }
@@ -57,7 +57,7 @@ class BDT_BLOCKS_LOADER {
      */
     public function enqueue_assets(){
         if( ! is_admin() ){
-            wp_enqueue_script( 'bdt-blocks-frontend', BDT_ADMIN_URL . './includes/assets/js/plugin.js', ['jquery'], BDT_VERSION, true);
+            wp_enqueue_script( 'bdt-blocks-frontend', BDT_REVIEW_ADMIN_URL . './includes/assets/js/plugin.js', ['jquery'], BDT_REVIEW_VERSION, true);
         }
         
     }
@@ -69,8 +69,8 @@ class BDT_BLOCKS_LOADER {
         return array_merge(
             [
                 [
-                    'slug' => 'bdt-blocks',
-                    'title' => __( 'BDT Blocks', 'bdt-blocks' )
+                    'slug' => 'bdt-review-blocks',
+                    'title' => __( 'BDT Review Blocks', 'bdt-review-blocks' )
                 ],
             ],
             $categories
@@ -83,7 +83,7 @@ class BDT_BLOCKS_LOADER {
     public function register_blocks() {
         
         // get all blocks from includes/blocks/blocks.php
-        require_once BDT_DIR_PATH . './includes/blocks/blocks.php';
+        require_once BDT_REVIEW_DIR_PATH . './includes/blocks/blocks.php';
 
         // Register Blocks
         if( ! empty( $bdt_blocks ) && is_array( $bdt_blocks ) ) {
@@ -99,7 +99,7 @@ class BDT_BLOCKS_LOADER {
      */
     public function register_single_block( $block ) {
         register_block_type(
-            BDT_DIR_PATH . './build/blocks/' . $block['name'],
+            BDT_REVIEW_DIR_PATH . './build/blocks/' . $block['name'],
             isset( $block['args'] ) ? $block['args'] : []
         );
         
@@ -128,7 +128,7 @@ class BDT_BLOCKS_LOADER {
                     $handle,
                     false,
                     [],
-                    BDT_VERSION
+                    BDT_REVIEW_VERSION
                 );
                 wp_enqueue_style( $handle );
                 wp_add_inline_style( $handle, $style );
@@ -140,4 +140,4 @@ class BDT_BLOCKS_LOADER {
 
 }
 
-new BDT_BLOCKS_LOADER();
+new BDT_REVIEW_BLOCKS_LOADER();

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Review
+ * Plugin Name:       Review Block
  * Description:       Starter plugin for creating Gutenberg blocks with zero configuration.
  * Requires at least: 5.7
  * Requires PHP:      7.0
@@ -45,9 +45,9 @@ final class BDT_REVIEW_BLOCKS_CLASS {
 	public function __construct(){
 		$this->define_constants();
 
-		if ( !version_compare( BDT_WP_VERSION, '5.8', '>=' ) ){
+		if ( !version_compare( BDT_REVIEW_WP_VERSION, '5.8', '>=' ) ){
             add_action( 'admin_notices', [ $this, 'check_wp_version' ] );
-        } elseif ( !version_compare( BDT_PHP_VERSION, '5.6', '>=' ) ){
+        } elseif ( !version_compare( BDT_REVIEW_PHP_VERSION, '5.6', '>=' ) ){
             add_action( 'admin_notices', [ $this, 'check_php_version' ] );
         } elseif ( !function_exists( 'register_block_type' ) ){
             add_action( 'admin_notices', [ $this, 'gutenberg_unavailable_notice' ] );
@@ -56,9 +56,9 @@ final class BDT_REVIEW_BLOCKS_CLASS {
         }
 		
         // activation hook
-        register_activation_hook( BDT_FILE, [ $this, 'blocks_activation_hook' ] );
+        register_activation_hook( BDT_REVIEW_FILE, [ $this, 'blocks_activation_hook' ] );
         // deactivation hook
-        register_deactivation_hook( BDT_FILE, [ $this, 'blocks_deactivation_hook' ] );
+        register_deactivation_hook( BDT_REVIEW_FILE, [ $this, 'blocks_deactivation_hook' ] );
 
 	}
 
@@ -66,15 +66,15 @@ final class BDT_REVIEW_BLOCKS_CLASS {
      * Define Constants
      */
     public function define_constants(){
-        define('BDT_NAME', 'bdt-blocks');
-		define('BDT_SLUG', 'bdt-blocks');
-        define('BDT_VERSION', '1.0.0');
-        define('BDT_FILE', __FILE__);
-		define('BDT_DIR', __DIR__);
-        define('BDT_DIR_PATH', plugin_dir_path(__FILE__));
-        define('BDT_ADMIN_URL', plugin_dir_url(__FILE__));
-        define('BDT_WP_VERSION', (float) get_bloginfo('version'));
-        define('BDT_PHP_VERSION', (float) phpversion());
+        define('BDT_REVIEW_NAME', 'bdt-review-blocks');
+		define('BDT_REVIEW_SLUG', 'bdt-review-blocks');
+        define('BDT_REVIEW_VERSION', '1.0.0');
+        define('BDT_REVIEW_FILE', __FILE__);
+		define('BDT_REVIEW_DIR', __DIR__);
+        define('BDT_REVIEW_DIR_PATH', plugin_dir_path(__FILE__));
+        define('BDT_REVIEW_ADMIN_URL', plugin_dir_url(__FILE__));
+        define('BDT_REVIEW_WP_VERSION', (float) get_bloginfo('version'));
+        define('BDT_REVIEW_PHP_VERSION', (float) phpversion());
     }
 
 	/**
@@ -84,7 +84,7 @@ final class BDT_REVIEW_BLOCKS_CLASS {
         $message = sprintf(
             esc_html__( 'BDT Review Blocks requires minimum PHP version %s where your current PHP version is %2s. Please update your PHP version to enable BDT Blocks features. ', 'bdt-review-blocks' ),
             '5.6',
-            ZOLO_PHP_VERSION
+            BDT_PHP_VERSION
         );
         $html_message = sprintf( '<div class="error">%s</div>', wpautop( $message ) );
         echo wp_kses_post( $html_message );
@@ -97,7 +97,7 @@ final class BDT_REVIEW_BLOCKS_CLASS {
         $message = sprintf(
             esc_html__( 'BDT Review Blocks requires minimum WordPress version %s where your current WordPress version is %2s. Please update your WordPress version to enable BDT Blocks features. ', 'bdt-review-blocks' ),
             '5.8',
-            ZOLO_WP_VERSION
+            BDT_WP_VERSION
         );
         $html_message = sprintf( '<div class="error">%s</div>', wpautop( $message ) );
         echo wp_kses_post( $html_message );
@@ -148,7 +148,7 @@ final class BDT_REVIEW_BLOCKS_CLASS {
      * Include required files
      */
     public function includes(){
-        require_once BDT_DIR_PATH . 'includes/blocks-loader.php';
+        require_once BDT_REVIEW_DIR_PATH . 'includes/blocks-loader.php';
     }
 }
 
