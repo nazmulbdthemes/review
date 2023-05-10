@@ -24,9 +24,9 @@ class BDT_REVIEW_BLOCKS_LOADER {
         
         //Register Block Category
         if ( version_compare( BDT_REVIEW_WP_VERSION, '5.8', '>=' ) ) {
-            add_filter( 'block_categories_all', [ $this, 'register_block_category' ], 99999, 2 );
+            add_filter( 'block_categories_all', [ $this, 'register_review_block_category' ], 99999, 2 );
         } else {
-            add_filter( 'block_categories', [ $this, 'register_block_category' ], 99999, 2 );
+            add_filter( 'block_categories', [ $this, 'register_review_block_category' ], 99999, 2 );
         }
 
         // Enqueue Inline style on render block
@@ -65,7 +65,7 @@ class BDT_REVIEW_BLOCKS_LOADER {
     /**
      * Blocks Category
      */
-    public function register_block_category( $categories, $post ) {
+    public function register_review_block_category( $categories, $post ) {
         return array_merge(
             [
                 [
@@ -86,8 +86,8 @@ class BDT_REVIEW_BLOCKS_LOADER {
         require_once BDT_REVIEW_DIR_PATH . './includes/blocks/blocks.php';
 
         // Register Blocks
-        if( ! empty( $bdt_blocks ) && is_array( $bdt_blocks ) ) {
-            foreach( $bdt_blocks as $block ) {
+        if( ! empty( $bdt_review_blocks ) && is_array( $bdt_review_blocks ) ) {
+            foreach( $bdt_review_blocks as $block ) {
                 $this->register_single_block( $block );
             }
         }
@@ -114,7 +114,7 @@ class BDT_REVIEW_BLOCKS_LOADER {
             if (isset($block['attrs']['blockStyle'])) {
 
                 $style = $block['attrs']['blockStyle'];
-                $handle = isset( $block['attrs']['uniqueId'] ) ? $block['attrs']['uniqueId'] : 'bdt-blocks';
+                $handle = isset( $block['attrs']['uniqueId'] ) ? $block['attrs']['uniqueId'] : 'bdt-review-blocks';
 
                 // convert style array to string
                 if ( is_array($style) ) {

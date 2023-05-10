@@ -3,7 +3,7 @@
  * All Blocks
  */
 
- $bdt_blocks = [
+ $bdt_review_blocks = [
     [
         'name' => 'review',
     ],
