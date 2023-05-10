@@ -24,6 +24,18 @@ const attributes = {
 	descriptionColor: {
 		type: 'string',
 	},
+	photo: {
+		type: 'object',
+	},
+	clientName: {
+		type: 'string',
+	},
+	clientDesg: {
+		type: 'string',
+	},
+	clientComment: {
+		type: 'string',
+	},
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,
 		defaults: {

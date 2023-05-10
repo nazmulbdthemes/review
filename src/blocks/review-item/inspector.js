@@ -2,8 +2,12 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { PanelBody } from '@wordpress/components';
+import { InspectorControls, PanelColorSettings, MediaUpload, BlockControls } from '@wordpress/block-editor';
+import {
+	PanelBody,
+	ToolbarButton,
+	ToolbarGroup,
+} from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -17,7 +21,7 @@ const { GRID_COLUMNS } = Constants;
 import objAttributes from './attributes';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor } = attributes;
+	const { titleColor, descriptionColor, photo } = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	return (
@@ -51,6 +55,28 @@ const Inspector = ({ attributes, setAttributes }) => {
 						},
 					]}
 				/>
+				{photo && (
+					<BlockControls>
+						<ToolbarGroup>
+							<MediaUpload
+								onSelect={(media) =>
+									setAttributes({
+										photo: media,
+									})
+								}
+								allowedTypes={['image']}
+								value={photo && photo.id}
+								render={({ open }) => (
+									<ToolbarButton
+										onClick={open}
+										label="Edit"
+										icon="edit"
+									></ToolbarButton>
+								)}
+							/>
+						</ToolbarGroup>
+					</BlockControls>
+				)}
 			</InspectorControls>
 		</div>
 	);
