@@ -55,7 +55,7 @@ class BDT_BLOCKS_LOADER {
      */
     public function enqueue_assets(){
         if( ! is_admin() ){
-            wp_enqueue_script( 'bdt-blocks-frontend', BDT_ADMIN_URL . './includes/assets/js/plugin.js', [], BDT_VERSION, true);
+            wp_enqueue_script( 'bdt-blocks-frontend', BDT_ADMIN_URL . './includes/assets/js/plugin.js', ['jquery'], BDT_VERSION, true);
         }
         
     }

@@ -7,6 +7,10 @@ const { Fragment, useEffect } = wp.element;
 // editor style
 import './editor.scss';
 
+// import rater
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
+
 /**
  * Internal dependencies
  */
@@ -25,6 +29,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		clientComment,
 		clientDesg,
 		clientName,
+		showRating,
+		rating
 	} = attributes;
 
 	useEffect(() => {
@@ -138,11 +144,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									)}
 								/>
 							</div>
-							{/* {showRating && (
+							{showRating && (
 								<div className="bdt-review-icon">
 									<Rater total={5} rating={rating} interactive={false} />
 								</div>
-							)} */}
+							)}
 						</div>
 					</div>
 				</div>

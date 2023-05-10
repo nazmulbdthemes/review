@@ -29,12 +29,23 @@ const attributes = {
 	},
 	clientName: {
 		type: 'string',
+		default: 'Asikur Rahman',
 	},
 	clientDesg: {
 		type: 'string',
+		default: 'Web Developer',
 	},
 	clientComment: {
 		type: 'string',
+		default: 'Type here some info about this team member, the man very important person of our company.',
+	},
+	showRating: {
+		type: 'boolean',
+		default: true,
+	},
+	rating: {
+		type: 'number',
+		default: 4.5,
 	},
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,

@@ -1,4 +1,4 @@
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
 	const { uniqueId, title, description } = attributes;
@@ -8,7 +8,8 @@ export default function save({ attributes }) {
 				className: `${uniqueId}`,
 			})}
 		>
-			<RichText.Content
+			<InnerBlocks.Content />
+			{/* <RichText.Content
 				tagName="h2"
 				value={title}
 				className="bdt-title"
@@ -17,7 +18,7 @@ export default function save({ attributes }) {
 				tagName="p"
 				className="bdt-description"
 				value={description}
-			/>
+			/> */}
 		</div>
 	);
 }
