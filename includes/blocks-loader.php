@@ -18,7 +18,8 @@ class BDT_BLOCKS_LOADER {
      * Constructor
      */
     public function __construct() {
-        $this->register_blocks();
+        // register block
+		add_action('init', [ $this, 'register_blocks']);
         
         //Register Block Category
         if ( version_compare( BDT_WP_VERSION, '5.8', '>=' ) ) {
