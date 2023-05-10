@@ -21,6 +21,9 @@ const attributes = {
 	description: {
 		type: 'string',
 	},
+	designationColor: {
+		type: 'string',
+	},
 	descriptionColor: {
 		type: 'string',
 	},

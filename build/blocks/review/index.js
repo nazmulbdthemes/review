@@ -35,6 +35,9 @@ const attributes = {
   description: {
     type: 'string'
   },
+  designationColor: {
+    type: 'string'
+  },
   descriptionColor: {
     type: 'string'
   },
@@ -115,7 +118,8 @@ function Edit(_ref) {
     title,
     titleColor,
     description,
-    descriptionColor
+    descriptionColor,
+    designationColor
   } = attributes;
   useEffect(() => {
     if (!uniqueId) {
@@ -125,10 +129,13 @@ function Edit(_ref) {
     }
   }, []);
   const deskStyles = `
-		.${uniqueId} .bdt-title {
+		.${uniqueId} .bdt-name {
 			color: ${titleColor};
 		}
-		.${uniqueId} .bdt-description {
+		.${uniqueId} .bdt-designation {
+			color: ${designationColor};
+		}
+		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
 		}
 	`;
@@ -280,7 +287,8 @@ const Inspector = _ref => {
   } = _ref;
   const {
     titleColor,
-    descriptionColor
+    descriptionColor,
+    designationColor
   } = attributes;
   const objAttrs = {
     attributes,
@@ -341,6 +349,12 @@ const Inspector = _ref => {
         titleColor: value
       }),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-blocks')
+    }, {
+      value: designationColor,
+      onChange: value => setAttributes({
+        designationColor: value
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-blocks')
     }, {
       value: descriptionColor,
       onChange: value => setAttributes({

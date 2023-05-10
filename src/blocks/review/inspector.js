@@ -19,7 +19,7 @@ const { GRID_COLUMNS } = Constants;
 import objAttributes from './attributes';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor } = attributes;
+	const { titleColor, descriptionColor, designationColor } = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	return (
@@ -96,6 +96,12 @@ const Inspector = ({ attributes, setAttributes }) => {
 							onChange: (value) =>
 								setAttributes({ titleColor: value }),
 							label: __('Title Color', 'bdt-blocks'),
+						},
+						{
+							value: designationColor,
+							onChange: (value) =>
+								setAttributes({ designationColor: value }),
+							label: __('Designation Color', 'bdt-blocks'),
 						},
 						{
 							value: descriptionColor,

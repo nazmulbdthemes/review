@@ -22,6 +22,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		titleColor,
 		description,
 		descriptionColor,
+		designationColor
 	} = attributes;
 
 	useEffect(() => {
@@ -31,10 +32,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	}, []);
 
 	const deskStyles = `
-		.${uniqueId} .bdt-title {
+		.${uniqueId} .bdt-name {
 			color: ${titleColor};
 		}
-		.${uniqueId} .bdt-description {
+		.${uniqueId} .bdt-designation {
+			color: ${designationColor};
+		}
+		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
 		}
 	`;
