@@ -42,225 +42,304 @@ const Inspector = ({ attributes, setAttributes }) => {
 						},
 					]}
 				>
-					{(tab) => {
-						if (tab.name === 'bdt_general') {
+					{(tabMain) => {
+						if (tabMain.name === 'bdt_general') {
 							return (
-								<PanelBody
-									title={__(
-										'Column Settings',
-										'bdt-review-blocks'
-									)}
-								>
-									<ResRangleControl
-										label={__(
-											'Grid Columns',
+								<Fragment>
+									<PanelBody
+										title={__(
+											'Column Settings',
 											'bdt-review-blocks'
 										)}
-										controlName={GRID_COLUMNS}
-										objAttrs={objAttrs}
-										noUnits={false}
-										min={1}
-										max={4}
-									/>
-								</PanelBody>
+									>
+										<ResRangleControl
+											label={__(
+												'Grid Columns',
+												'bdt-review-blocks'
+											)}
+											controlName={GRID_COLUMNS}
+											objAttrs={objAttrs}
+											noUnits={false}
+											min={1}
+											max={4}
+										/>
+									</PanelBody>
+									<PanelBody
+										title={__(
+											'Image Setting',
+											'bdt-review-blocks'
+										)}
+										initialOpen={false}
+									></PanelBody>
+									<PanelBody
+										title={__(
+											'Content Color',
+											'bdt-review-blocks'
+										)}
+										initialOpen={false}
+									>
+										<TabPanel
+											className="bdt-tab-panel"
+											activeClass="active-tab"
+											initialTabName="bdt_review_normal"
+											tabs={[
+												{
+													name: 'bdt_review_normal',
+													title: __(
+														'Normal',
+														'bdt-review-blocks'
+													),
+													className:
+														'bdt-tab bdt-general',
+												},
+												{
+													name: 'bdt_review_hover',
+													title: __(
+														'Hover',
+														'bdt-review-blocks'
+													),
+													className:
+														'bdt-tab bdt-style',
+												},
+											]}
+										>
+											{(tabContent) => {
+												if (
+													tabContent.name ===
+													'bdt_review_normal'
+												) {
+													return (
+														<PanelColorSettings
+															title={__(
+																'Color Settings',
+																'bdt-review-blocks'
+															)}
+															initialOpen={false}
+															colorSettings={[
+																{
+																	value: titleColor,
+																	onChange: (
+																		value
+																	) =>
+																		setAttributes(
+																			{
+																				titleColor:
+																					value,
+																			}
+																		),
+																	label: __(
+																		'Title Color',
+																		'bdt-review-blocks'
+																	),
+																},
+																{
+																	value: designationColor,
+																	onChange: (
+																		value
+																	) =>
+																		setAttributes(
+																			{
+																				designationColor:
+																					value,
+																			}
+																		),
+																	label: __(
+																		'Designation Color',
+																		'bdt-review-blocks'
+																	),
+																},
+																{
+																	value: descriptionColor,
+																	onChange: (
+																		value
+																	) =>
+																		setAttributes(
+																			{
+																				descriptionColor:
+																					value,
+																			}
+																		),
+																	label: __(
+																		'Description Color',
+																		'bdt-review-blocks'
+																	),
+																},
+															]}
+														/>
+													);
+												} else if (
+													tabContent.name ===
+													'bdt_review_hover'
+												) {
+													return (
+														<PanelColorSettings
+															title={__(
+																'Color Settings',
+																'bdt-review-blocks'
+															)}
+															initialOpen={false}
+															colorSettings={[
+																{
+																	value: titleColor,
+																	onChange: (
+																		value
+																	) =>
+																		setAttributes(
+																			{
+																				titleColor:
+																					value,
+																			}
+																		),
+																	label: __(
+																		'Title Color',
+																		'bdt-review-blocks'
+																	),
+																},
+																{
+																	value: designationColor,
+																	onChange: (
+																		value
+																	) =>
+																		setAttributes(
+																			{
+																				designationColor:
+																					value,
+																			}
+																		),
+																	label: __(
+																		'Designation Color',
+																		'bdt-review-blocks'
+																	),
+																},
+																{
+																	value: descriptionColor,
+																	onChange: (
+																		value
+																	) =>
+																		setAttributes(
+																			{
+																				descriptionColor:
+																					value,
+																			}
+																		),
+																	label: __(
+																		'Description Color',
+																		'bdt-review-blocks'
+																	),
+																},
+															]}
+														/>
+													);
+												}
+											}}
+										</TabPanel>
+									</PanelBody>
+									<PanelBody
+										title={__(
+											'Item Box',
+											'bdt-review-blocks'
+										)}
+										initialOpen={false}
+									>
+										<TabPanel
+											className="bdt-tab-panel"
+											activeClass="active-tab"
+											initialTabName="bdt_review_normal"
+											tabs={[
+												{
+													name: 'bdt_review_normal',
+													title: __(
+														'Normal',
+														'bdt-review-blocks'
+													),
+													className:
+														'bdt-tab bdt-general',
+												},
+												{
+													name: 'bdt_review_hover',
+													title: __(
+														'Hover',
+														'bdt-review-blocks'
+													),
+													className:
+														'bdt-tab bdt-style',
+												},
+											]}
+										>
+											{(tabBox) => {
+												if (
+													tabBox.name ===
+													'bdt_review_normal'
+												) {
+													return (
+														<PanelColorSettings
+															title={__(
+																'Color Settings',
+																'bdt-review-blocks'
+															)}
+															initialOpen={false}
+															colorSettings={[
+																{
+																	value: boxBgColor,
+																	onChange: (
+																		value
+																	) =>
+																		setAttributes(
+																			{
+																				boxBgColor:
+																					value,
+																			}
+																		),
+																	label: __(
+																		'background Color',
+																		'bdt-review-blocks'
+																	),
+																},
+															]}
+														/>
+													);
+												} else if (
+													tabBox.name ===
+													'bdt_review_hover'
+												) {
+													return (
+														<PanelColorSettings
+															title={__(
+																'Color Settings',
+																'bdt-review-blocks'
+															)}
+															initialOpen={false}
+															colorSettings={[
+																{
+																	value: boxBgColor,
+																	onChange: (
+																		value
+																	) =>
+																		setAttributes(
+																			{
+																				boxBgColor:
+																					value,
+																			}
+																		),
+																	label: __(
+																		'Background Color',
+																		'bdt-review-blocks'
+																	),
+																},
+															]}
+														/>
+													);
+												}
+											}}
+										</TabPanel>
+									</PanelBody>
+								</Fragment>
 							);
-						} else if (tab.name === 'bdt_advanced') {
+						} else if (tabMain.name === 'bdt_advanced') {
 							return <div>Advanced</div>;
 						}
 					}}
 				</TabPanel>
-				<PanelBody
-					title={__('Image Setting', 'bdt-review-blocks')}
-					initialOpen={false}
-				></PanelBody>
-				<PanelBody
-					title={__('Content Color', 'bdt-review-blocks')}
-					initialOpen={false}
-				>
-					<TabPanel
-						className="bdt-tab-panel"
-						activeClass="active-tab"
-						initialTabName="bdt_review_normal"
-						tabs={[
-							{
-								name: 'bdt_review_normal',
-								title: __('Normal', 'bdt-review-blocks'),
-								className: 'bdt-tab bdt-general',
-							},
-							{
-								name: 'bdt_review_hover',
-								title: __('Hover', 'bdt-review-blocks'),
-								className: 'bdt-tab bdt-style',
-							},
-						]}
-					>
-						{(tab) => {
-							if (tab.name === 'bdt_review_normal') {
-								return (
-									<PanelColorSettings
-										title={__(
-											'Color Settings',
-											'bdt-review-blocks'
-										)}
-										initialOpen={false}
-										colorSettings={[
-											{
-												value: titleColor,
-												onChange: (value) =>
-													setAttributes({
-														titleColor: value,
-													}),
-												label: __(
-													'Title Color',
-													'bdt-review-blocks'
-												),
-											},
-											{
-												value: designationColor,
-												onChange: (value) =>
-													setAttributes({
-														designationColor: value,
-													}),
-												label: __(
-													'Designation Color',
-													'bdt-review-blocks'
-												),
-											},
-											{
-												value: descriptionColor,
-												onChange: (value) =>
-													setAttributes({
-														descriptionColor: value,
-													}),
-												label: __(
-													'Description Color',
-													'bdt-review-blocks'
-												),
-											},
-										]}
-									/>
-								);
-							} else if (tab.name === 'bdt_review_hover') {
-								return (
-									<PanelColorSettings
-										title={__(
-											'Color Settings',
-											'bdt-review-blocks'
-										)}
-										initialOpen={false}
-										colorSettings={[
-											{
-												value: titleColor,
-												onChange: (value) =>
-													setAttributes({
-														titleColor: value,
-													}),
-												label: __(
-													'Title Color',
-													'bdt-review-blocks'
-												),
-											},
-											{
-												value: designationColor,
-												onChange: (value) =>
-													setAttributes({
-														designationColor: value,
-													}),
-												label: __(
-													'Designation Color',
-													'bdt-review-blocks'
-												),
-											},
-											{
-												value: descriptionColor,
-												onChange: (value) =>
-													setAttributes({
-														descriptionColor: value,
-													}),
-												label: __(
-													'Description Color',
-													'bdt-review-blocks'
-												),
-											},
-										]}
-									/>
-								);
-							}
-						}}
-					</TabPanel>
-				</PanelBody>
-				<PanelBody
-					title={__('Item Box', 'bdt-review-blocks')}
-					initialOpen={false}
-				>
-					<TabPanel
-						className="bdt-tab-panel"
-						activeClass="active-tab"
-						initialTabName="bdt_review_normal"
-						tabs={[
-							{
-								name: 'bdt_review_normal',
-								title: __('Normal', 'bdt-review-blocks'),
-								className: 'bdt-tab bdt-general',
-							},
-							{
-								name: 'bdt_review_hover',
-								title: __('Hover', 'bdt-review-blocks'),
-								className: 'bdt-tab bdt-style',
-							},
-						]}
-					>
-						{(tab) => {
-							if (tab.name === 'bdt_review_normal') {
-								return (
-									<PanelColorSettings
-										title={__(
-											'Color Settings',
-											'bdt-review-blocks'
-										)}
-										initialOpen={false}
-										colorSettings={[
-											{
-												value: boxBgColor,
-												onChange: (value) =>
-													setAttributes({
-														boxBgColor: value,
-													}),
-												label: __(
-													'background Color',
-													'bdt-review-blocks'
-												),
-											}
-										]}
-									/>
-								);
-							} else if (tab.name === 'bdt_review_hover') {
-								return (
-									<PanelColorSettings
-										title={__(
-											'Color Settings',
-											'bdt-review-blocks'
-										)}
-										initialOpen={false}
-										colorSettings={[
-											{
-												value: boxBgColor,
-												onChange: (value) =>
-													setAttributes({
-														boxBgColor: value,
-													}),
-												label: __(
-													'Background Color',
-													'bdt-review-blocks'
-												),
-											}
-										]}
-									/>
-								);
-							}
-						}}
-					</TabPanel>
-				</PanelBody>
 			</InspectorControls>
 		</div>
 	);
