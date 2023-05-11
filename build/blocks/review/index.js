@@ -41,6 +41,9 @@ const attributes = {
   descriptionColor: {
     type: 'string'
   },
+  boxBgColor: {
+    type: 'string'
+  },
   ...generateResRangleControlAttributes({
     controlName: GRID_COLUMNS,
     defaults: {
@@ -119,7 +122,9 @@ function Edit(_ref) {
     titleColor,
     description,
     descriptionColor,
-    designationColor
+    designationColor,
+    controlName,
+    boxBgColor
   } = attributes;
   useEffect(() => {
     if (!uniqueId) {
@@ -138,6 +143,14 @@ function Edit(_ref) {
 		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
 		}
+		.${uniqueId} .bdt-item {
+			background: ${boxBgColor};
+		}
+		.${uniqueId} .block-editor-block-list__layout {
+			color: ${descriptionColor};
+			grid-template-columns: repeat(${controlName}, 1fr);
+		}
+		console.log(controlName);
 	`;
   const tabStyles = ``;
   const mobStyles = ``;
@@ -288,7 +301,8 @@ const Inspector = _ref => {
   const {
     titleColor,
     descriptionColor,
-    designationColor
+    designationColor,
+    boxBgColor
   } = attributes;
   const objAttrs = {
     attributes,
@@ -306,63 +320,137 @@ const Inspector = _ref => {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Generral', 'text-domain'),
       className: 'bdt-tab bdt-general'
     }, {
-      name: 'bdt_style',
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Style', 'text-domain'),
-      className: 'bdt-tab bdt-style'
-    }, {
       name: 'bdt_advanced',
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Advanced', 'text-domain'),
       className: 'bdt-tab bdt-advanced'
     }]
   }, tab => {
     if (tab.name === 'bdt_general') {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        initialOpen: true
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Settings', 'bdt-review-blocks')
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Grid Columns', 'bdt-review-blocks'),
+        controlName: GRID_COLUMNS,
+        objAttrs: objAttrs,
+        noUnits: false,
+        min: 1,
+        max: 4
       }));
-    } else if (tab.name === 'bdt_style') {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Style");
     } else if (tab.name === 'bdt_advanced') {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
-        label: "Additional CSS Class",
-        value: customClasses,
-        onChange: value => setAttributes({
-          customClasses: value
-        }),
-        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Please write multiple custom classes using space', 'clr')
-      }));
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Advanced");
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Settings', 'bdt-blocks')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Grid Columns', 'bdt-blocks'),
-    controlName: GRID_COLUMNS,
-    objAttrs: objAttrs,
-    noUnits: false,
-    min: 1,
-    max: 4
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-blocks'),
-    initialOpen: false,
-    colorSettings: [{
-      value: titleColor,
-      onChange: value => setAttributes({
-        titleColor: value
-      }),
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-blocks')
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Setting', 'bdt-review-blocks'),
+    initialOpen: false
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content Color', 'bdt-review-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
+    className: "bdt-tab-panel",
+    activeClass: "active-tab",
+    initialTabName: "bdt_review_normal",
+    tabs: [{
+      name: 'bdt_review_normal',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Normal', 'bdt-review-blocks'),
+      className: 'bdt-tab bdt-general'
     }, {
-      value: designationColor,
-      onChange: value => setAttributes({
-        designationColor: value
-      }),
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-blocks')
-    }, {
-      value: descriptionColor,
-      onChange: value => setAttributes({
-        descriptionColor: value
-      }),
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-blocks')
+      name: 'bdt_review_hover',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Hover', 'bdt-review-blocks'),
+      className: 'bdt-tab bdt-style'
     }]
-  })));
+  }, tab => {
+    if (tab.name === 'bdt_review_normal') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
+        initialOpen: false,
+        colorSettings: [{
+          value: titleColor,
+          onChange: value => setAttributes({
+            titleColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-review-blocks')
+        }, {
+          value: designationColor,
+          onChange: value => setAttributes({
+            designationColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-review-blocks')
+        }, {
+          value: descriptionColor,
+          onChange: value => setAttributes({
+            descriptionColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-review-blocks')
+        }]
+      });
+    } else if (tab.name === 'bdt_review_hover') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
+        initialOpen: false,
+        colorSettings: [{
+          value: titleColor,
+          onChange: value => setAttributes({
+            titleColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-review-blocks')
+        }, {
+          value: designationColor,
+          onChange: value => setAttributes({
+            designationColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-review-blocks')
+        }, {
+          value: descriptionColor,
+          onChange: value => setAttributes({
+            descriptionColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-review-blocks')
+        }]
+      });
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Item Box', 'bdt-review-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
+    className: "bdt-tab-panel",
+    activeClass: "active-tab",
+    initialTabName: "bdt_review_normal",
+    tabs: [{
+      name: 'bdt_review_normal',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Normal', 'bdt-review-blocks'),
+      className: 'bdt-tab bdt-general'
+    }, {
+      name: 'bdt_review_hover',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Hover', 'bdt-review-blocks'),
+      className: 'bdt-tab bdt-style'
+    }]
+  }, tab => {
+    if (tab.name === 'bdt_review_normal') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
+        initialOpen: false,
+        colorSettings: [{
+          value: boxBgColor,
+          onChange: value => setAttributes({
+            boxBgColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('background Color', 'bdt-review-blocks')
+        }]
+      });
+    } else if (tab.name === 'bdt_review_hover') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
+        initialOpen: false,
+        colorSettings: [{
+          value: boxBgColor,
+          onChange: value => setAttributes({
+            boxBgColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color', 'bdt-review-blocks')
+        }]
+      });
+    }
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);

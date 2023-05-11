@@ -27,6 +27,9 @@ const attributes = {
 	descriptionColor: {
 		type: 'string',
 	},
+	boxBgColor: {
+		type: 'string',
+	},
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,
 		defaults: {

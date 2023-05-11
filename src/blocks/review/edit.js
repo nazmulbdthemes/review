@@ -22,7 +22,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		titleColor,
 		description,
 		descriptionColor,
-		designationColor
+		designationColor,
+		controlName,
+		boxBgColor
 	} = attributes;
 
 	useEffect(() => {
@@ -41,6 +43,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
 		}
+		.${uniqueId} .bdt-item {
+			background: ${boxBgColor};
+		}
+		.${uniqueId} .block-editor-block-list__layout {
+			color: ${descriptionColor};
+			grid-template-columns: repeat(${controlName}, 1fr);
+		}
+		console.log(controlName);
 	`;
 	const tabStyles = ``;
 	const mobStyles = ``;
