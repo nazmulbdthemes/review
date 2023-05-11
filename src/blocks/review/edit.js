@@ -20,11 +20,15 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		blockStyle,
 		title,
 		titleColor,
+		titleHoverColor,
 		description,
 		descriptionColor,
 		designationColor,
+		descriptionHoverColor,
+		designationHoverColor,
 		controlName,
-		boxBgColor
+		boxBgColor,
+		boxBgHoverColor
 	} = attributes;
 
 	useEffect(() => {
@@ -46,11 +50,18 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		.${uniqueId} .bdt-item {
 			background: ${boxBgColor};
 		}
-		.${uniqueId} .block-editor-block-list__layout {
-			color: ${descriptionColor};
-			grid-template-columns: repeat(${controlName}, 1fr);
+		.${uniqueId} .bdt-item:hover .bdt-name {
+			color: ${titleHoverColor};
 		}
-		console.log(controlName);
+		.${uniqueId} .bdt-item:hover .bdt-designation {
+			color: ${designationHoverColor};
+		}
+		.${uniqueId} .bdt-item:hover .bdt-desc {
+			color: ${descriptionHoverColor};
+		}
+		.${uniqueId} .bdt-item:hover {
+			background: ${boxBgHoverColor};
+		}
 	`;
 	const tabStyles = ``;
 	const mobStyles = ``;

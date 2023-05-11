@@ -19,7 +19,7 @@ const { GRID_COLUMNS } = Constants;
 import objAttributes from './attributes';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor, designationColor, boxBgColor } = attributes;
+	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor } = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	return (
@@ -180,13 +180,13 @@ const Inspector = ({ attributes, setAttributes }) => {
 															initialOpen={false}
 															colorSettings={[
 																{
-																	value: titleColor,
+																	value: titleHoverColor,
 																	onChange: (
 																		value
 																	) =>
 																		setAttributes(
 																			{
-																				titleColor:
+																				titleHoverColor:
 																					value,
 																			}
 																		),
@@ -196,13 +196,13 @@ const Inspector = ({ attributes, setAttributes }) => {
 																	),
 																},
 																{
-																	value: designationColor,
+																	value: designationHoverColor,
 																	onChange: (
 																		value
 																	) =>
 																		setAttributes(
 																			{
-																				designationColor:
+																				designationHoverColor:
 																					value,
 																			}
 																		),
@@ -212,13 +212,13 @@ const Inspector = ({ attributes, setAttributes }) => {
 																	),
 																},
 																{
-																	value: descriptionColor,
+																	value: descriptionHoverColor,
 																	onChange: (
 																		value
 																	) =>
 																		setAttributes(
 																			{
-																				descriptionColor:
+																				descriptionHoverColor:
 																					value,
 																			}
 																		),
@@ -311,13 +311,13 @@ const Inspector = ({ attributes, setAttributes }) => {
 															initialOpen={false}
 															colorSettings={[
 																{
-																	value: boxBgColor,
+																	value: boxBgHoverColor,
 																	onChange: (
 																		value
 																	) =>
 																		setAttributes(
 																			{
-																				boxBgColor:
+																				boxBgHoverColor:
 																					value,
 																			}
 																		),

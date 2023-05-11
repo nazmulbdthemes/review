@@ -32,6 +32,9 @@ const attributes = {
   titleColor: {
     type: 'string'
   },
+  titleHoverColor: {
+    type: 'string'
+  },
   description: {
     type: 'string'
   },
@@ -44,6 +47,32 @@ const attributes = {
   boxBgColor: {
     type: 'string'
   },
+  designationHoverColor: {
+    type: 'string'
+  },
+  descriptionHoverColor: {
+    type: 'string'
+  },
+  boxBgHoverColor: {
+    type: 'string'
+  },
+  // colors: {
+  // 	type: 'object',
+  // 	default: {
+  // 		normal: {
+  // 			titleColor: '',
+  // 			designationColor: '',
+  // 			descriptionColor: '',
+  // 			boxBgColor: ''
+  // 		},
+  // 		hover: {
+  // 			titleColor: '',
+  // 			designationColor: '',
+  // 			descriptionColor: '',
+  // 			boxBgColor: ''
+  // 		},
+  // 	},
+  // },
   ...generateResRangleControlAttributes({
     controlName: GRID_COLUMNS,
     defaults: {
@@ -120,11 +149,15 @@ function Edit(_ref) {
     blockStyle,
     title,
     titleColor,
+    titleHoverColor,
     description,
     descriptionColor,
     designationColor,
+    descriptionHoverColor,
+    designationHoverColor,
     controlName,
-    boxBgColor
+    boxBgColor,
+    boxBgHoverColor
   } = attributes;
   useEffect(() => {
     if (!uniqueId) {
@@ -146,11 +179,18 @@ function Edit(_ref) {
 		.${uniqueId} .bdt-item {
 			background: ${boxBgColor};
 		}
-		.${uniqueId} .block-editor-block-list__layout {
-			color: ${descriptionColor};
-			grid-template-columns: repeat(${controlName}, 1fr);
+		.${uniqueId} .bdt-item:hover .bdt-name {
+			color: ${titleHoverColor};
 		}
-		console.log(controlName);
+		.${uniqueId} .bdt-item:hover .bdt-designation {
+			color: ${designationHoverColor};
+		}
+		.${uniqueId} .bdt-item:hover .bdt-desc {
+			color: ${descriptionHoverColor};
+		}
+		.${uniqueId} .bdt-item:hover {
+			background: ${boxBgHoverColor};
+		}
 	`;
   const tabStyles = ``;
   const mobStyles = ``;
@@ -302,7 +342,11 @@ const Inspector = _ref => {
     titleColor,
     descriptionColor,
     designationColor,
-    boxBgColor
+    boxBgColor,
+    titleHoverColor,
+    descriptionHoverColor,
+    designationHoverColor,
+    boxBgHoverColor
   } = attributes;
   const objAttrs = {
     attributes,
@@ -384,21 +428,21 @@ const Inspector = _ref => {
             title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
             initialOpen: false,
             colorSettings: [{
-              value: titleColor,
+              value: titleHoverColor,
               onChange: value => setAttributes({
-                titleColor: value
+                titleHoverColor: value
               }),
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-review-blocks')
             }, {
-              value: designationColor,
+              value: designationHoverColor,
               onChange: value => setAttributes({
-                designationColor: value
+                designationHoverColor: value
               }),
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-review-blocks')
             }, {
-              value: descriptionColor,
+              value: descriptionHoverColor,
               onChange: value => setAttributes({
-                descriptionColor: value
+                descriptionHoverColor: value
               }),
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-review-blocks')
             }]
@@ -438,9 +482,9 @@ const Inspector = _ref => {
             title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
             initialOpen: false,
             colorSettings: [{
-              value: boxBgColor,
+              value: boxBgHoverColor,
               onChange: value => setAttributes({
-                boxBgColor: value
+                boxBgHoverColor: value
               }),
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color', 'bdt-review-blocks')
             }]

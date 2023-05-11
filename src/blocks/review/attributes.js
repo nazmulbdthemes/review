@@ -18,6 +18,9 @@ const attributes = {
 	titleColor: {
 		type: 'string',
 	},
+	titleHoverColor: {
+		type: 'string',
+	},
 	description: {
 		type: 'string',
 	},
@@ -30,6 +33,32 @@ const attributes = {
 	boxBgColor: {
 		type: 'string',
 	},
+	designationHoverColor: {
+		type: 'string',
+	},
+	descriptionHoverColor: {
+		type: 'string',
+	},
+	boxBgHoverColor: {
+		type: 'string',
+	},
+	// colors: {
+	// 	type: 'object',
+	// 	default: {
+	// 		normal: {
+	// 			titleColor: '',
+	// 			designationColor: '',
+	// 			descriptionColor: '',
+	// 			boxBgColor: ''
+	// 		},
+	// 		hover: {
+	// 			titleColor: '',
+	// 			designationColor: '',
+	// 			descriptionColor: '',
+	// 			boxBgColor: ''
+	// 		},
+	// 	},
+	// },
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,
 		defaults: {
