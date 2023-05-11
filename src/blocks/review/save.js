@@ -5,20 +5,10 @@ export default function save({ attributes }) {
 	return (
 		<div
 			{...useBlockProps.save({
-				className: `${uniqueId}`,
+				className: `${uniqueId} bdt-item`,
 			})}
 		>
 			<InnerBlocks.Content />
-			{/* <RichText.Content
-				tagName="h2"
-				value={title}
-				className="bdt-title"
-			/>
-			<RichText.Content
-				tagName="p"
-				className="bdt-description"
-				value={description}
-			/> */}
 		</div>
 	);
 }

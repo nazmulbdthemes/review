@@ -76,7 +76,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>
-			<Inspector attributes={attributes} setAttributes={setAttributes} />
 			<div
 				{...useBlockProps({
 					className: uniqueId,
@@ -88,7 +87,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							{photo ? (
 								<div className="bdt-image-wrap">
 									<img
-										className="bdt-image"
+										className="bdt-img"
 										src={photo.url}
 										alt={photo.alt ? photo.alt : clientName}
 									/>
@@ -156,22 +155,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 						</div>
 					</div>
 				</div>
-				{/* <RichText
-					tagName="h2"
-					className="bdt-title"
-					value={title}
-					onChange={(content) => setAttributes({ title: content })}
-					placeholder={__('Write title…', 'bdt-blocks')}
-				/>
-				<RichText
-					tagName="p"
-					className="bdt-description"
-					value={description}
-					onChange={(content) =>
-						setAttributes({ description: content })
-					}
-					placeholder={__('Write description…', 'bdt-blocks')}
-				/> */}
 			</div>
 		</Fragment>
 	);

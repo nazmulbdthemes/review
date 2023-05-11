@@ -23,4 +23,16 @@
   background: #d4cece;
 }
 
+.wp-block-bdt-review .block-editor-block-list__layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto;
+  gap: 20px;
+}
+
+.wp-block-bdt-review {
+  display: inherit;
+}
+
 /*# sourceMappingURL=index.css.map*/

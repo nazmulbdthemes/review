@@ -47,19 +47,24 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
 		}
-		.${uniqueId} .bdt-item {
+		.${uniqueId} .bdt-item, 
+		.${uniqueId} .wp-block-bdt-review-item  {
 			background: ${boxBgColor};
 		}
-		.${uniqueId} .bdt-item:hover .bdt-name {
+		.${uniqueId} .bdt-item:hover .bdt-name,
+		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-name {
 			color: ${titleHoverColor};
 		}
-		.${uniqueId} .bdt-item:hover .bdt-designation {
+		.${uniqueId} .bdt-item:hover .bdt-designation,
+		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-designation {
 			color: ${designationHoverColor};
 		}
-		.${uniqueId} .bdt-item:hover .bdt-desc {
+		.${uniqueId} .bdt-item:hover .bdt-desc,
+		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-desc {
 			color: ${descriptionHoverColor};
 		}
-		.${uniqueId} .bdt-item:hover {
+		.${uniqueId} .bdt-item:hover,
+		.${uniqueId} .wp-block-bdt-review-item:hover {
 			background: ${boxBgHoverColor};
 		}
 	`;

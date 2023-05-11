@@ -176,19 +176,24 @@ function Edit(_ref) {
 		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
 		}
-		.${uniqueId} .bdt-item {
+		.${uniqueId} .bdt-item, 
+		.${uniqueId} .wp-block-bdt-review-item  {
 			background: ${boxBgColor};
 		}
-		.${uniqueId} .bdt-item:hover .bdt-name {
+		.${uniqueId} .bdt-item:hover .bdt-name,
+		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-name {
 			color: ${titleHoverColor};
 		}
-		.${uniqueId} .bdt-item:hover .bdt-designation {
+		.${uniqueId} .bdt-item:hover .bdt-designation,
+		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-designation {
 			color: ${designationHoverColor};
 		}
-		.${uniqueId} .bdt-item:hover .bdt-desc {
+		.${uniqueId} .bdt-item:hover .bdt-desc,
+		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-desc {
 			color: ${descriptionHoverColor};
 		}
-		.${uniqueId} .bdt-item:hover {
+		.${uniqueId} .bdt-item:hover,
+		.${uniqueId} .wp-block-bdt-review-item:hover {
 			background: ${boxBgHoverColor};
 		}
 	`;
@@ -527,7 +532,7 @@ function save(_ref) {
     description
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-    className: `${uniqueId}`
+    className: `${uniqueId} bdt-item`
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
 }
 
