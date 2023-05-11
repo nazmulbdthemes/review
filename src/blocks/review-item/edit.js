@@ -76,6 +76,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>
+			<Inspector attributes={attributes} setAttributes={setAttributes} />
 			<div
 				{...useBlockProps({
 					className: uniqueId,
@@ -149,7 +150,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 							</div>
 							{showRating && (
 								<div className="bdt-review-icon">
-									<Rater total={5} rating={rating} interactive={false} />
+									<Rater
+										total={5}
+										rating={rating}
+										interactive={false}
+									/>
 								</div>
 							)}
 						</div>

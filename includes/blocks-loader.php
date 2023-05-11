@@ -57,7 +57,8 @@ class BDT_REVIEW_BLOCKS_LOADER {
      */
     public function enqueue_assets(){
         if( ! is_admin() ){
-            wp_enqueue_script( 'bdt-blocks-frontend', BDT_REVIEW_ADMIN_URL . './includes/assets/js/plugin.js', ['jquery'], BDT_REVIEW_VERSION, true);
+            wp_enqueue_script( 'bdt-review-blocks-rater', BDT_REVIEW_ADMIN_URL . './includes/assets/js/rater.min.js', ['jquery'], BDT_REVIEW_VERSION, true);
+            wp_enqueue_script( 'bdt-review-blocks-frontend', BDT_REVIEW_ADMIN_URL . './includes/assets/js/plugin.js', ['jquery'], BDT_REVIEW_VERSION, true);
         }
         
     }

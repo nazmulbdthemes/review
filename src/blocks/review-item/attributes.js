@@ -37,7 +37,8 @@ const attributes = {
 	},
 	clientComment: {
 		type: 'string',
-		default: 'Type here some info about this team member, the man very important person of our company.',
+		default:
+			'Type here some info about this team member, the man very important person of our company.',
 	},
 	showRating: {
 		type: 'boolean',
@@ -46,6 +47,14 @@ const attributes = {
 	rating: {
 		type: 'number',
 		default: 4.5,
+	},
+	icon: {
+		type: 'string',
+		default: 'facebook1',
+	},
+	showIcon: {
+		type: 'boolean',
+		default: true,
 	},
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,

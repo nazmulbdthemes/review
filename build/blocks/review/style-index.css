@@ -21,6 +21,10 @@
   margin: auto;
   gap: 20px;
 }
+.wp-block-bdt-review .bdt-review-icon .react-rater-star {
+  font-size: 14px;
+  color: #ff9a00;
+}
 
 .bdt-inspector-controls {
   display: none;

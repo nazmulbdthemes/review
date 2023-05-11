@@ -35,4 +35,14 @@
   display: inherit;
 }
 
+.wp-block-bdt-review .block-editor-button-block-appender svg {
+  display: none;
+}
+
+.wp-block-bdt-review .block-editor-button-block-appender::before {
+  content: "Add Item";
+  font-weight: 600;
+  font-size: 16px;
+}
+
 /*# sourceMappingURL=index.css.map*/
