@@ -13,7 +13,8 @@ import './editor.scss';
 import Inspector from './inspector';
 import { softMinifyCssStrings } from '../../helper/softminify';
 import './style.scss';
-
+import * as Constants from './constants';
+const { GRID_COLUMNS } = Constants;
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
 		uniqueId,
@@ -28,16 +29,26 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		designationHoverColor,
 		controlName,
 		boxBgColor,
-		boxBgHoverColor
+		boxBgHoverColor,
 	} = attributes;
 
 	useEffect(() => {
 		if (!uniqueId) {
-			setAttributes({ uniqueId: `bdt-blocks-${clientId.slice(0, 8)}` });
+			setAttributes({
+				uniqueId: `bdt-review-blocks-${clientId.slice(0, 8)}`,
+			});
 		}
 	}, []);
 
+	const deskCols = attributes[`${GRID_COLUMNS}DeskRange`];
+	const tabCols = attributes[`${GRID_COLUMNS}TabRange`];
+	const mobCols = attributes[`${GRID_COLUMNS}MobRange`];
+
 	const deskStyles = `
+
+	.${uniqueId} .block-editor-block-list__layout {
+			grid-template-columns: repeat(${deskCols}, 1fr);
+		}
 		.${uniqueId} .bdt-name {
 			color: ${titleColor};
 		}
@@ -68,8 +79,16 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			background: ${boxBgHoverColor};
 		}
 	`;
-	const tabStyles = ``;
-	const mobStyles = ``;
+	const tabStyles = `
+		.${uniqueId} .block-editor-block-list__layout {
+			grid-template-columns: repeat(${tabCols}, 1fr);
+		}
+	`;
+	const mobStyles = `
+		.${uniqueId} .block-editor-block-list__layout {
+			grid-template-columns: repeat(${mobCols}, 1fr);
+		}
+	`;
 
 	/**
 	 * Block All Styles
@@ -99,17 +118,15 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					className: uniqueId,
 				})}
 			>
-					<InnerBlocks
-						allowedBlocks={['bdt/review-item']}
-						template={[
-							['bdt/review-item'],
-							['bdt/review-item'],
-							['bdt/review-item'],
-						]}
-						renderAppender={() => (
-							<InnerBlocks.ButtonBlockAppender />
-						)}
-					/>
+				<InnerBlocks
+					allowedBlocks={['bdt/review-item']}
+					template={[
+						['bdt/review-item'],
+						['bdt/review-item'],
+						['bdt/review-item'],
+					]}
+					renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
+				/>
 				{/* <RichText
 					tagName="h2"
 					className="bdt-title"

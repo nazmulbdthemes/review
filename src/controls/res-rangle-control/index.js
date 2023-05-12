@@ -24,9 +24,10 @@ const ResRangleControl = ({
 		[`${controlName}DeskRange`]: deskRange,
 		[`${controlName}TabRange`]: tabRange,
 		[`${controlName}MobRange`]: mobRange,
+		[`${controlName}Unit`]: unit,
 	} = attributes;
 
-	if (!units) units = units || ['px', '%'];
+	if (!units) units = units || ['px', 'em'];
 
 	return (
 		<div className="bdt-res-rangle-control">
@@ -45,12 +46,23 @@ const ResRangleControl = ({
 							{units &&
 								units.map((unit, index) => {
 									return (
-										<div
+										<button
 											className="single-unit"
+											variant={
+												unit === unit
+													? 'primary'
+													: 'secondary'
+											}
 											key={index}
+											onClick={() =>
+												setAttributes({
+													[`${controlName}Unit`]:
+														unit,
+												})
+											}
 										>
 											{unit}
-										</div>
+										</button>
 									);
 								})}
 						</div>

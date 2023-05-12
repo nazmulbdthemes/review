@@ -21,12 +21,16 @@
 		}
 	}
 }
-.wp-block-bdt-review .block-editor-block-list__layout  {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin: auto;
+.wp-block-bdt-review .block-editor-block-list__layout {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin: auto;
 	gap: 20px;
+	min-width: 1px;
+}
+.wp-block-bdt-review-item {
+	min-width: 1px;
 }
 .wp-block-bdt-review {
 	display: inherit;

@@ -120,6 +120,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./inspector */ "./src/blocks/review/inspector.js");
 /* harmony import */ var _helper_softminify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../helper/softminify */ "./src/helper/softminify.js");
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/review/style.scss");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./constants */ "./src/blocks/review/constants/index.js");
 
 
 /* eslint-disable no-console */
@@ -138,6 +139,10 @@ const {
 
 
 
+
+const {
+  GRID_COLUMNS
+} = _constants__WEBPACK_IMPORTED_MODULE_7__;
 function Edit(_ref) {
   let {
     attributes,
@@ -162,11 +167,18 @@ function Edit(_ref) {
   useEffect(() => {
     if (!uniqueId) {
       setAttributes({
-        uniqueId: `bdt-blocks-${clientId.slice(0, 8)}`
+        uniqueId: `bdt-review-blocks-${clientId.slice(0, 8)}`
       });
     }
   }, []);
+  const deskCols = attributes[`${GRID_COLUMNS}DeskRange`];
+  const tabCols = attributes[`${GRID_COLUMNS}TabRange`];
+  const mobCols = attributes[`${GRID_COLUMNS}MobRange`];
   const deskStyles = `
+
+	.${uniqueId} .block-editor-block-list__layout {
+			grid-template-columns: repeat(${deskCols}, 1fr);
+		}
 		.${uniqueId} .bdt-name {
 			color: ${titleColor};
 		}
@@ -197,8 +209,16 @@ function Edit(_ref) {
 			background: ${boxBgHoverColor};
 		}
 	`;
-  const tabStyles = ``;
-  const mobStyles = ``;
+  const tabStyles = `
+		.${uniqueId} .block-editor-block-list__layout {
+			grid-template-columns: repeat(${tabCols}, 1fr);
+		}
+	`;
+  const mobStyles = `
+		.${uniqueId} .block-editor-block-list__layout {
+			grid-template-columns: repeat(${mobCols}, 1fr);
+		}
+	`;
   /**
    * Block All Styles
    */
@@ -655,9 +675,10 @@ const ResRangleControl = _ref => {
   const {
     [`${controlName}DeskRange`]: deskRange,
     [`${controlName}TabRange`]: tabRange,
-    [`${controlName}MobRange`]: mobRange
+    [`${controlName}MobRange`]: mobRange,
+    [`${controlName}Unit`]: unit
   } = attributes;
-  if (!units) units = units || ['px', '%'];
+  if (!units) units = units || ['px', 'em'];
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-res-rangle-control"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Flex, {
@@ -671,9 +692,13 @@ const ResRangleControl = _ref => {
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, !noUnits && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "units-wrapper"
   }, units && units.map((unit, index) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
       className: "single-unit",
-      key: index
+      variant: unit === unit ? 'primary' : 'secondary',
+      key: index,
+      onClick: () => setAttributes({
+        [`${controlName}Unit`]: unit
+      })
     }, unit);
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "res-controls"
@@ -729,7 +754,8 @@ const generateResRangleControlAttributes = _ref => {
   const {
     [`${controlName}DeskRange`]: deskRange,
     [`${controlName}TabRange`]: tabRange,
-    [`${controlName}MobRange`]: mobRange
+    [`${controlName}MobRange`]: mobRange,
+    [`${controlName}Unit`]: unit = 'px'
   } = defaults;
   return {
     [`${controlName}DeskRange`]: {
@@ -743,6 +769,10 @@ const generateResRangleControlAttributes = _ref => {
     [`${controlName}MobRange`]: {
       type: 'number',
       default: mobRange
+    },
+    [`${controlName}Unit`]: {
+      type: 'string',
+      default: unit
     }
   };
 };

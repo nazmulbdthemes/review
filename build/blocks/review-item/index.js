@@ -768,7 +768,8 @@ const generateResRangleControlAttributes = _ref => {
   const {
     [`${controlName}DeskRange`]: deskRange,
     [`${controlName}TabRange`]: tabRange,
-    [`${controlName}MobRange`]: mobRange
+    [`${controlName}MobRange`]: mobRange,
+    [`${controlName}Unit`]: unit = 'px'
   } = defaults;
   return {
     [`${controlName}DeskRange`]: {
@@ -782,6 +783,10 @@ const generateResRangleControlAttributes = _ref => {
     [`${controlName}MobRange`]: {
       type: 'number',
       default: mobRange
+    },
+    [`${controlName}Unit`]: {
+      type: 'string',
+      default: unit
     }
   };
 };
