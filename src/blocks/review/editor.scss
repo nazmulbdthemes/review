@@ -52,3 +52,48 @@
     font-size: 14px;
     color: #ff9a00;
 }
+.components-base-control .components-button {
+    justify-content: center;
+    min-width: 36px;
+    padding: 0px;
+    height: 16px;
+    min-width: 1px;
+    width: 20px;
+    background: #fff;
+    color: #9b9a9a;
+    border: 1px solid #ddd;
+	box-shadow: none;
+}
+.components-button.is-primary:focus:not(:disabled) {
+	box-shadow: none;
+}
+.components-base-control .components-button.has-icon:hover {
+	background: #0000;
+	color: #000;
+}
+.components-button.is-primary {
+	color: #000;
+	background: #dfdfdf;
+}
+.components-button.is-secondary:hover:not(:disabled) {
+	box-shadow: none;
+}
+.components-base-control .components-button.has-icon span {
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+}
+.components-button.is-primary:active:not(:disabled) {
+	background-color: #ddd;
+	color: #000;
+	border: none;
+}
+.res-btn {
+    display: flex;
+    gap: 5px;
+	align-items: center;
+	justify-content: center;
+}

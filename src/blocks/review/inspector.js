@@ -14,12 +14,12 @@ import * as Controls from '../../controls';
 import './editor.scss';
 
 const { ResRangleControl } = Controls;
-const { GRID_COLUMNS } = Constants;
+const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESG_FONT_SIZE, DESC_FONT_SIZE, RATING_SIZE } = Constants;
 
 import objAttributes from './attributes';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor } = attributes;
+	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor,  } = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	return (
@@ -54,7 +54,48 @@ const Inspector = ({ attributes, setAttributes }) => {
 									>
 										<ResRangleControl
 											label={__(
-												'Grid Columns',
+												'Column Number',
+												'bdt-review-blocks'
+											)}
+											controlName={GRID_COLUMNS}
+											objAttrs={objAttrs}
+											noUnits={true}
+											min={1}
+											max={4}
+										/>
+										<ResRangleControl
+											label={__(
+												'Column Gap',
+												'bdt-review-blocks'
+											)}
+											controlName={GRID_GAP}
+											objAttrs={objAttrs}
+											noUnits={false}
+											min={0}
+											max={100}
+										/>
+										<ResRangleControl
+											label={__(
+												'Row Gap',
+												'bdt-review-blocks'
+											)}
+											controlName={ROW_GAP}
+											objAttrs={objAttrs}
+											noUnits={false}
+											min={0}
+											max={100}
+										/>
+									</PanelBody>
+									<PanelBody
+										title={__(
+											'Image Setting',
+											'bdt-review-blocks'
+										)}
+										initialOpen={false}
+									>
+										<ResRangleControl
+											label={__(
+												'Image Size',
 												'bdt-review-blocks'
 											)}
 											controlName={GRID_COLUMNS}
@@ -64,13 +105,6 @@ const Inspector = ({ attributes, setAttributes }) => {
 											max={4}
 										/>
 									</PanelBody>
-									<PanelBody
-										title={__(
-											'Image Setting',
-											'bdt-review-blocks'
-										)}
-										initialOpen={false}
-									></PanelBody>
 									<PanelBody
 										title={__(
 											'Content',
@@ -109,63 +143,115 @@ const Inspector = ({ attributes, setAttributes }) => {
 													'bdt_review_normal'
 												) {
 													return (
-														<PanelColorSettings
-															title={__(
-																'Color Settings',
-																'bdt-review-blocks'
-															)}
-															initialOpen={false}
-															colorSettings={[
-																{
-																	value: titleColor,
-																	onChange: (
-																		value
-																	) =>
-																		setAttributes(
-																			{
-																				titleColor:
-																					value,
-																			}
+														<Fragment>
+															<PanelColorSettings
+																title={__(
+																	'Color Settings',
+																	'bdt-review-blocks'
+																)}
+																initialOpen={
+																	false
+																}
+																colorSettings={[
+																	{
+																		value: titleColor,
+																		onChange:
+																			(
+																				value
+																			) =>
+																				setAttributes(
+																					{
+																						titleColor:
+																							value,
+																					}
+																				),
+																		label: __(
+																			'Title Color',
+																			'bdt-review-blocks'
 																		),
-																	label: __(
-																		'Title Color',
-																		'bdt-review-blocks'
-																	),
-																},
-																{
-																	value: designationColor,
-																	onChange: (
-																		value
-																	) =>
-																		setAttributes(
-																			{
-																				designationColor:
-																					value,
-																			}
+																	},
+																	{
+																		value: designationColor,
+																		onChange:
+																			(
+																				value
+																			) =>
+																				setAttributes(
+																					{
+																						designationColor:
+																							value,
+																					}
+																				),
+																		label: __(
+																			'Designation Color',
+																			'bdt-review-blocks'
 																		),
-																	label: __(
-																		'Designation Color',
-																		'bdt-review-blocks'
-																	),
-																},
-																{
-																	value: descriptionColor,
-																	onChange: (
-																		value
-																	) =>
-																		setAttributes(
-																			{
-																				descriptionColor:
-																					value,
-																			}
+																	},
+																	{
+																		value: descriptionColor,
+																		onChange:
+																			(
+																				value
+																			) =>
+																				setAttributes(
+																					{
+																						descriptionColor:
+																							value,
+																					}
+																				),
+																		label: __(
+																			'Description Color',
+																			'bdt-review-blocks'
 																		),
-																	label: __(
-																		'Description Color',
-																		'bdt-review-blocks'
-																	),
-																},
-															]}
-														/>
+																	},
+																]}
+															/>
+															<ResRangleControl
+																label={__(
+																	'Name Font Size',
+																	'bdt-review-blocks'
+																)}
+																controlName={
+																	NAME_FONT_SIZE
+																}
+																objAttrs={
+																	objAttrs
+																}
+																noUnits={false}
+																min={1}
+																max={100}
+															/>
+															<ResRangleControl
+																label={__(
+																	'Designation Font Size',
+																	'bdt-review-blocks'
+																)}
+																controlName={
+																	DESG_FONT_SIZE
+																}
+																objAttrs={
+																	objAttrs
+																}
+																noUnits={false}
+																min={1}
+																max={100}
+															/>
+															<ResRangleControl
+																label={__(
+																	'Description Font Size',
+																	'bdt-review-blocks'
+																)}
+																controlName={
+																	DESC_FONT_SIZE
+																}
+																objAttrs={
+																	objAttrs
+																}
+																noUnits={false}
+																min={1}
+																max={100}
+															/>
+														</Fragment>
 													);
 												} else if (
 													tabContent.name ===
@@ -260,6 +346,17 @@ const Inspector = ({ attributes, setAttributes }) => {
 													),
 												},
 											]}
+										/>
+										<ResRangleControl
+											label={__(
+												'Rating Size',
+												'bdt-review-blocks'
+											)}
+											controlName={RATING_SIZE}
+											objAttrs={objAttrs}
+											noUnits={false}
+											min={1}
+											max={100}
 										/>
 									</PanelBody>
 									<PanelBody

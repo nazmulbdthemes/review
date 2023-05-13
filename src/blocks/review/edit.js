@@ -13,7 +13,7 @@ import Inspector from './inspector';
 import { softMinifyCssStrings } from '../../helper/softminify';
 import './style.scss';
 import * as Constants from './constants';
-const { GRID_COLUMNS } = Constants;
+const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESC_FONT_SIZE, DESG_FONT_SIZE, RATING_SIZE } = Constants;
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
 		uniqueId,
@@ -40,20 +40,56 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const deskCols = attributes[`${GRID_COLUMNS}DeskRange`];
 	const tabCols = attributes[`${GRID_COLUMNS}TabRange`];
 	const mobCols = attributes[`${GRID_COLUMNS}MobRange`];
+	// Grid Coloumn Gap
+	const deskGap = attributes[`${GRID_GAP}DeskRange`];
+	const tabGap = attributes[`${GRID_GAP}TabRange`];
+	const mobGap = attributes[`${GRID_GAP}MobRange`];
+	const gapUnit = attributes[`${GRID_GAP}Unit`];
+	// Grid Row Gap
+	const deskRowGap = attributes[`${ROW_GAP}DeskRange`];
+	const tabRowGap = attributes[`${ROW_GAP}TabRange`];
+	const mobRowGap = attributes[`${ROW_GAP}MobRange`];
+	const gapRowUnit = attributes[`${ROW_GAP}Unit`];
+	// Name Font Size
+	const deskNameFont = attributes[`${NAME_FONT_SIZE}DeskRange`];
+	const tabNameFont = attributes[`${NAME_FONT_SIZE}TabRange`];
+	const mobNameFont = attributes[`${NAME_FONT_SIZE}MobRange`];
+	const nameFontUnit = attributes[`${NAME_FONT_SIZE}Unit`];
+	// DESG Font Size
+	const deskDesgFont = attributes[`${DESG_FONT_SIZE}DeskRange`];
+	const tabDesgFont = attributes[`${DESG_FONT_SIZE}TabRange`];
+	const mobDesgFont = attributes[`${DESG_FONT_SIZE}MobRange`];
+	const DesgFontUnit = attributes[`${DESG_FONT_SIZE}Unit`];
+	// DESC Font Size
+	const deskDescFont = attributes[`${DESC_FONT_SIZE}DeskRange`];
+	const tabDescFont = attributes[`${DESC_FONT_SIZE}TabRange`];
+	const mobDescFont = attributes[`${DESC_FONT_SIZE}MobRange`];
+	const DescFontUnit = attributes[`${DESC_FONT_SIZE}Unit`];
+	// Rating Size
+	const deskRatingSize = attributes[`${RATING_SIZE}DeskRange`];
+	const tabRatingSize = attributes[`${RATING_SIZE}TabRange`];
+	const mobRatingSize = attributes[`${RATING_SIZE}MobRange`];
+	const ratingUnit = attributes[`${RATING_SIZE}Unit`];
+	console.log(deskGap);
 
 	const deskStyles = `
 
-	.${uniqueId} .block-editor-block-list__layout {
+		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${deskCols}, 1fr);
+			grid-column-gap: ${deskGap}px;
+			grid-row-gap: ${deskRowGap}px;
 		}
 		.${uniqueId} .bdt-name {
-			color: ${titleColor};
+			color: ${titleColor}!important;
+			font-size: ${deskNameFont}px!important;
 		}
 		.${uniqueId} .bdt-designation {
 			color: ${designationColor};
+			font-size: ${deskDesgFont}px!important;
 		}
 		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
+			font-size: ${deskDescFont}px!important;
 		}
 		.${uniqueId} .bdt-item, 
 		.${uniqueId} .wp-block-bdt-review-item  {
@@ -79,15 +115,52 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
 			color: ${ratingColor};
 		}
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
+			font-size: ${deskRatingSize}px!important;
+		}
 	`;
 	const tabStyles = `
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${tabCols}, 1fr);
+			grid-column-gap: ${tabGap}px;
+			grid-row-gap: ${tabRowGap}px;
+		}
+		.${uniqueId} .bdt-name {
+			font-size: ${tabNameFont}px!important;
+		}
+		.${uniqueId} .bdt-designation {
+			font-size: ${tabDesgFont}px!important;
+		}
+		.${uniqueId} .bdt-desc {
+			font-size: ${tabDescFont}px!important;
+		}
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
+			font-size: ${tabRatingSize}px!important;
 		}
 	`;
 	const mobStyles = `
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${mobCols}, 1fr);
+			grid-column-gap: ${mobGap}px;
+			grid-row-gap: ${mobRowGap}px;
+		}
+		.${uniqueId} .bdt-name {
+			font-size: ${mobNameFont}px!important;
+		}
+		.${uniqueId} .bdt-designation {
+			font-size: ${mobDesgFont}px!important;
+		}
+		.${uniqueId} .bdt-desc {
+			font-size: ${mobDescFont}px!important;
+		}
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
+			font-size: ${mobRatingSize}px!important;
 		}
 	`;
 

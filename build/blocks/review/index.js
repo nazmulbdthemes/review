@@ -17,7 +17,13 @@ const {
   generateResRangleControlAttributes
 } = _generators__WEBPACK_IMPORTED_MODULE_1__;
 const {
-  GRID_COLUMNS
+  GRID_COLUMNS,
+  GRID_GAP,
+  ROW_GAP,
+  NAME_FONT_SIZE,
+  DESC_FONT_SIZE,
+  DESG_FONT_SIZE,
+  RATING_SIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_0__;
 const attributes = {
   uniqueId: {
@@ -66,6 +72,54 @@ const attributes = {
       [`${GRID_COLUMNS}TabRange`]: 2,
       [`${GRID_COLUMNS}MobRange`]: 1
     }
+  }),
+  ...generateResRangleControlAttributes({
+    controlName: GRID_GAP,
+    defaults: {
+      [`${GRID_GAP}DeskRange`]: 30,
+      [`${GRID_GAP}TabRange`]: 30,
+      [`${GRID_GAP}MobRange`]: 30
+    }
+  }),
+  ...generateResRangleControlAttributes({
+    controlName: ROW_GAP,
+    defaults: {
+      [`${ROW_GAP}DeskRange`]: 30,
+      [`${ROW_GAP}TabRange`]: 30,
+      [`${ROW_GAP}MobRange`]: 30
+    }
+  }),
+  ...generateResRangleControlAttributes({
+    controlName: NAME_FONT_SIZE,
+    defaults: {
+      [`${NAME_FONT_SIZE}DeskRange`]: 22,
+      [`${NAME_FONT_SIZE}TabRange`]: 18,
+      [`${NAME_FONT_SIZE}MobRange`]: 16
+    }
+  }),
+  ...generateResRangleControlAttributes({
+    controlName: DESG_FONT_SIZE,
+    defaults: {
+      [`${DESG_FONT_SIZE}DeskRange`]: 22,
+      [`${DESG_FONT_SIZE}TabRange`]: 18,
+      [`${DESG_FONT_SIZE}MobRange`]: 16
+    }
+  }),
+  ...generateResRangleControlAttributes({
+    controlName: DESC_FONT_SIZE,
+    defaults: {
+      [`${DESC_FONT_SIZE}DeskRange`]: 22,
+      [`${DESC_FONT_SIZE}TabRange`]: 18,
+      [`${DESC_FONT_SIZE}MobRange`]: 16
+    }
+  }),
+  ...generateResRangleControlAttributes({
+    controlName: RATING_SIZE,
+    defaults: {
+      [`${RATING_SIZE}DeskRange`]: 22,
+      [`${RATING_SIZE}TabRange`]: 18,
+      [`${RATING_SIZE}MobRange`]: 16
+    }
   })
 };
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
@@ -80,9 +134,21 @@ const attributes = {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "GRID_COLUMNS": function() { return /* binding */ GRID_COLUMNS; }
+/* harmony export */   "GRID_COLUMNS": function() { return /* binding */ GRID_COLUMNS; },
+/* harmony export */   "GRID_GAP": function() { return /* binding */ GRID_GAP; },
+/* harmony export */   "ROW_GAP": function() { return /* binding */ ROW_GAP; },
+/* harmony export */   "NAME_FONT_SIZE": function() { return /* binding */ NAME_FONT_SIZE; },
+/* harmony export */   "DESG_FONT_SIZE": function() { return /* binding */ DESG_FONT_SIZE; },
+/* harmony export */   "DESC_FONT_SIZE": function() { return /* binding */ DESC_FONT_SIZE; },
+/* harmony export */   "RATING_SIZE": function() { return /* binding */ RATING_SIZE; }
 /* harmony export */ });
 const GRID_COLUMNS = 'gridColumns';
+const GRID_GAP = 'gridGap';
+const ROW_GAP = 'rowGap';
+const NAME_FONT_SIZE = 'nameFontSize';
+const DESG_FONT_SIZE = 'desgFontSize';
+const DESC_FONT_SIZE = 'descFontSize';
+const RATING_SIZE = 'ratingSize';
 
 /***/ }),
 
@@ -122,7 +188,13 @@ const {
 
 
 const {
-  GRID_COLUMNS
+  GRID_COLUMNS,
+  GRID_GAP,
+  ROW_GAP,
+  NAME_FONT_SIZE,
+  DESC_FONT_SIZE,
+  DESG_FONT_SIZE,
+  RATING_SIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_6__;
 function Edit(_ref) {
   let {
@@ -152,20 +224,56 @@ function Edit(_ref) {
   }, []);
   const deskCols = attributes[`${GRID_COLUMNS}DeskRange`];
   const tabCols = attributes[`${GRID_COLUMNS}TabRange`];
-  const mobCols = attributes[`${GRID_COLUMNS}MobRange`];
+  const mobCols = attributes[`${GRID_COLUMNS}MobRange`]; // Grid Coloumn Gap
+
+  const deskGap = attributes[`${GRID_GAP}DeskRange`];
+  const tabGap = attributes[`${GRID_GAP}TabRange`];
+  const mobGap = attributes[`${GRID_GAP}MobRange`];
+  const gapUnit = attributes[`${GRID_GAP}Unit`]; // Grid Row Gap
+
+  const deskRowGap = attributes[`${ROW_GAP}DeskRange`];
+  const tabRowGap = attributes[`${ROW_GAP}TabRange`];
+  const mobRowGap = attributes[`${ROW_GAP}MobRange`];
+  const gapRowUnit = attributes[`${ROW_GAP}Unit`]; // Name Font Size
+
+  const deskNameFont = attributes[`${NAME_FONT_SIZE}DeskRange`];
+  const tabNameFont = attributes[`${NAME_FONT_SIZE}TabRange`];
+  const mobNameFont = attributes[`${NAME_FONT_SIZE}MobRange`];
+  const nameFontUnit = attributes[`${NAME_FONT_SIZE}Unit`]; // DESG Font Size
+
+  const deskDesgFont = attributes[`${DESG_FONT_SIZE}DeskRange`];
+  const tabDesgFont = attributes[`${DESG_FONT_SIZE}TabRange`];
+  const mobDesgFont = attributes[`${DESG_FONT_SIZE}MobRange`];
+  const DesgFontUnit = attributes[`${DESG_FONT_SIZE}Unit`]; // DESC Font Size
+
+  const deskDescFont = attributes[`${DESC_FONT_SIZE}DeskRange`];
+  const tabDescFont = attributes[`${DESC_FONT_SIZE}TabRange`];
+  const mobDescFont = attributes[`${DESC_FONT_SIZE}MobRange`];
+  const DescFontUnit = attributes[`${DESC_FONT_SIZE}Unit`]; // Rating Size
+
+  const deskRatingSize = attributes[`${RATING_SIZE}DeskRange`];
+  const tabRatingSize = attributes[`${RATING_SIZE}TabRange`];
+  const mobRatingSize = attributes[`${RATING_SIZE}MobRange`];
+  const ratingUnit = attributes[`${RATING_SIZE}Unit`];
+  console.log(deskGap);
   const deskStyles = `
 
-	.${uniqueId} .block-editor-block-list__layout {
+		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${deskCols}, 1fr);
+			grid-column-gap: ${deskGap}px;
+			grid-row-gap: ${deskRowGap}px;
 		}
 		.${uniqueId} .bdt-name {
-			color: ${titleColor};
+			color: ${titleColor}!important;
+			font-size: ${deskNameFont}px!important;
 		}
 		.${uniqueId} .bdt-designation {
 			color: ${designationColor};
+			font-size: ${deskDesgFont}px!important;
 		}
 		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
+			font-size: ${deskDescFont}px!important;
 		}
 		.${uniqueId} .bdt-item, 
 		.${uniqueId} .wp-block-bdt-review-item  {
@@ -191,15 +299,52 @@ function Edit(_ref) {
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
 			color: ${ratingColor};
 		}
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
+			font-size: ${deskRatingSize}px!important;
+		}
 	`;
   const tabStyles = `
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${tabCols}, 1fr);
+			grid-column-gap: ${tabGap}px;
+			grid-row-gap: ${tabRowGap}px;
+		}
+		.${uniqueId} .bdt-name {
+			font-size: ${tabNameFont}px!important;
+		}
+		.${uniqueId} .bdt-designation {
+			font-size: ${tabDesgFont}px!important;
+		}
+		.${uniqueId} .bdt-desc {
+			font-size: ${tabDescFont}px!important;
+		}
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
+			font-size: ${tabRatingSize}px!important;
 		}
 	`;
   const mobStyles = `
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${mobCols}, 1fr);
+			grid-column-gap: ${mobGap}px;
+			grid-row-gap: ${mobRowGap}px;
+		}
+		.${uniqueId} .bdt-name {
+			font-size: ${mobNameFont}px!important;
+		}
+		.${uniqueId} .bdt-designation {
+			font-size: ${mobDesgFont}px!important;
+		}
+		.${uniqueId} .bdt-desc {
+			font-size: ${mobDescFont}px!important;
+		}
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
+			font-size: ${mobRatingSize}px!important;
 		}
 	`;
   /**
@@ -337,7 +482,13 @@ const {
   ResRangleControl
 } = _controls__WEBPACK_IMPORTED_MODULE_5__;
 const {
-  GRID_COLUMNS
+  GRID_COLUMNS,
+  GRID_GAP,
+  ROW_GAP,
+  NAME_FONT_SIZE,
+  DESG_FONT_SIZE,
+  DESC_FONT_SIZE,
+  RATING_SIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_4__;
 
 
@@ -382,16 +533,37 @@ const Inspector = _ref => {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Settings', 'bdt-review-blocks')
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Grid Columns', 'bdt-review-blocks'),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Number', 'bdt-review-blocks'),
+        controlName: GRID_COLUMNS,
+        objAttrs: objAttrs,
+        noUnits: true,
+        min: 1,
+        max: 4
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Gap', 'bdt-review-blocks'),
+        controlName: GRID_GAP,
+        objAttrs: objAttrs,
+        noUnits: false,
+        min: 0,
+        max: 100
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Row Gap', 'bdt-review-blocks'),
+        controlName: ROW_GAP,
+        objAttrs: objAttrs,
+        noUnits: false,
+        min: 0,
+        max: 100
+      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Setting', 'bdt-review-blocks'),
+        initialOpen: false
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Size', 'bdt-review-blocks'),
         controlName: GRID_COLUMNS,
         objAttrs: objAttrs,
         noUnits: false,
         min: 1,
         max: 4
       })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Setting', 'bdt-review-blocks'),
-        initialOpen: false
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content', 'bdt-review-blocks'),
         initialOpen: false
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
@@ -409,7 +581,7 @@ const Inspector = _ref => {
         }]
       }, tabContent => {
         if (tabContent.name === 'bdt_review_normal') {
-          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
             title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
             initialOpen: false,
             colorSettings: [{
@@ -431,7 +603,28 @@ const Inspector = _ref => {
               }),
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-review-blocks')
             }]
-          });
+          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Name Font Size', 'bdt-review-blocks'),
+            controlName: NAME_FONT_SIZE,
+            objAttrs: objAttrs,
+            noUnits: false,
+            min: 1,
+            max: 100
+          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Font Size', 'bdt-review-blocks'),
+            controlName: DESG_FONT_SIZE,
+            objAttrs: objAttrs,
+            noUnits: false,
+            min: 1,
+            max: 100
+          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Font Size', 'bdt-review-blocks'),
+            controlName: DESC_FONT_SIZE,
+            objAttrs: objAttrs,
+            noUnits: false,
+            min: 1,
+            max: 100
+          }));
         } else if (tabContent.name === 'bdt_review_hover') {
           return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
             title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
@@ -470,6 +663,13 @@ const Inspector = _ref => {
           }),
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Color', 'bdt-review-blocks')
         }]
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Size', 'bdt-review-blocks'),
+        controlName: RATING_SIZE,
+        objAttrs: objAttrs,
+        noUnits: false,
+        min: 1,
+        max: 100
       })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Item Box', 'bdt-review-blocks'),
         initialOpen: false
