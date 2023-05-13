@@ -73,7 +73,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 									></PanelBody>
 									<PanelBody
 										title={__(
-											'Content Color',
+											'Content',
 											'bdt-review-blocks'
 										)}
 										initialOpen={false}

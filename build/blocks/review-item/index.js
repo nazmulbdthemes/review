@@ -152,9 +152,7 @@ function Edit(_ref) {
   const {
     uniqueId,
     blockStyle,
-    title,
     titleColor,
-    description,
     descriptionColor,
     photo,
     clientComment,
@@ -365,14 +363,6 @@ const {
 } = wp.element; // Import Iconpicker
 
 
-/**
- * Internal dependencies
- */
-// import * as Constants from './constants';
-// import * as Controls from '../../controls';
-// const { ResRangleControl } = Controls;
-// const { GRID_COLUMNS } = Constants;
-// import objAttributes from './attributes';
 
 const Inspector = _ref => {
   let {
@@ -383,8 +373,7 @@ const Inspector = _ref => {
     showRating,
     rating,
     icon
-  } = attributes; // const objAttrs = { attributes, setAttributes, objAttributes };
-
+  } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-inspector-controls"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Card, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardHeader, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Client Rating', 'bdt-review-blocks'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
@@ -402,12 +391,6 @@ const Inspector = _ref => {
     min: 1,
     max: 5,
     step: 0.1
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controls_icon_picker_iconpicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select Icon', 'bdt-review-blocks'),
-    selectedIcon: icon,
-    changeIcon: value => setAttributes({
-      icon: value
-    })
   }))))));
 };
 

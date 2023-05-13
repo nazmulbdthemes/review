@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
-import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
+
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 const { Fragment, useEffect } = wp.element;
 
@@ -19,15 +18,12 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
 		uniqueId,
 		blockStyle,
-		title,
 		titleColor,
 		titleHoverColor,
-		description,
 		descriptionColor,
 		designationColor,
 		descriptionHoverColor,
 		designationHoverColor,
-		controlName,
 		boxBgColor,
 		boxBgHoverColor,
 	} = attributes;
@@ -127,22 +123,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					]}
 					renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
 				/>
-				{/* <RichText
-					tagName="h2"
-					className="bdt-title"
-					value={title}
-					onChange={(content) => setAttributes({ title: content })}
-					placeholder={__('Write title…', 'bdt-blocks')}
-				/>
-				<RichText
-					tagName="p"
-					className="bdt-description"
-					value={description}
-					onChange={(content) =>
-						setAttributes({ description: content })
-					}
-					placeholder={__('Write description…', 'bdt-blocks')}
-				/> */}
 			</div>
 		</Fragment>
 	);

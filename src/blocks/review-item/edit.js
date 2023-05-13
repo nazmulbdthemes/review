@@ -21,9 +21,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
 		uniqueId,
 		blockStyle,
-		title,
 		titleColor,
-		description,
 		descriptionColor,
 		photo,
 		clientComment,

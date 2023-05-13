@@ -50,4 +50,14 @@
   font-size: 16px;
 }
 
+.bdt-review-icon {
+  color: unset;
+}
+
+.bdt-review-icon .react-rater-star.is-active,
+.bdt-review-icon .react-rater-star.is-active-half::before {
+  font-size: 14px;
+  color: #ff9a00;
+}
+
 /*# sourceMappingURL=index.css.map*/
