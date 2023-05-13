@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { PanelBody, TabPanel, CardDivider } from '@wordpress/components';
+import { PanelBody, TabPanel} from '@wordpress/components';
 const { Fragment } = wp.element;
 
 /**
@@ -19,7 +19,7 @@ const { GRID_COLUMNS } = Constants;
 import objAttributes from './attributes';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor } = attributes;
+	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor } = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	return (
@@ -233,6 +233,34 @@ const Inspector = ({ attributes, setAttributes }) => {
 												}
 											}}
 										</TabPanel>
+									</PanelBody>
+									<PanelBody
+										title={__(
+											'Rating',
+											'bdt-review-blocks'
+										)}
+										initialOpen={false}
+									>
+										<PanelColorSettings
+											title={__(
+												'Rating Color',
+												'bdt-review-blocks'
+											)}
+											initialOpen={false}
+											colorSettings={[
+												{
+													value: ratingColor,
+													onChange: (value) =>
+														setAttributes({
+															ratingColor: value,
+														}),
+													label: __(
+														'Rating Color',
+														'bdt-review-blocks'
+													),
+												},
+											]}
+										/>
 									</PanelBody>
 									<PanelBody
 										title={__(

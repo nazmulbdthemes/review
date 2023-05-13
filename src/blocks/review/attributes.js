@@ -42,23 +42,9 @@ const attributes = {
 	boxBgHoverColor: {
 		type: 'string',
 	},
-	// colors: {
-	// 	type: 'object',
-	// 	default: {
-	// 		normal: {
-	// 			titleColor: '',
-	// 			designationColor: '',
-	// 			descriptionColor: '',
-	// 			boxBgColor: ''
-	// 		},
-	// 		hover: {
-	// 			titleColor: '',
-	// 			designationColor: '',
-	// 			descriptionColor: '',
-	// 			boxBgColor: ''
-	// 		},
-	// 	},
-	// },
+	ratingColor: {
+		type: 'string',
+	},
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,
 		defaults: {

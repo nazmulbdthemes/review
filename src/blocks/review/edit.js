@@ -26,6 +26,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		designationHoverColor,
 		boxBgColor,
 		boxBgHoverColor,
+		ratingColor
 	} = attributes;
 
 	useEffect(() => {
@@ -73,6 +74,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		.${uniqueId} .bdt-item:hover,
 		.${uniqueId} .wp-block-bdt-review-item:hover {
 			background: ${boxBgHoverColor};
+		}
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
+			color: ${ratingColor};
 		}
 	`;
 	const tabStyles = `

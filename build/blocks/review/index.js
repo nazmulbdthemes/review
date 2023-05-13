@@ -56,23 +56,9 @@ const attributes = {
   boxBgHoverColor: {
     type: 'string'
   },
-  // colors: {
-  // 	type: 'object',
-  // 	default: {
-  // 		normal: {
-  // 			titleColor: '',
-  // 			designationColor: '',
-  // 			descriptionColor: '',
-  // 			boxBgColor: ''
-  // 		},
-  // 		hover: {
-  // 			titleColor: '',
-  // 			designationColor: '',
-  // 			descriptionColor: '',
-  // 			boxBgColor: ''
-  // 		},
-  // 	},
-  // },
+  ratingColor: {
+    type: 'string'
+  },
   ...generateResRangleControlAttributes({
     controlName: GRID_COLUMNS,
     defaults: {
@@ -154,7 +140,8 @@ function Edit(_ref) {
     descriptionHoverColor,
     designationHoverColor,
     boxBgColor,
-    boxBgHoverColor
+    boxBgHoverColor,
+    ratingColor
   } = attributes;
   useEffect(() => {
     if (!uniqueId) {
@@ -199,6 +186,10 @@ function Edit(_ref) {
 		.${uniqueId} .bdt-item:hover,
 		.${uniqueId} .wp-block-bdt-review-item:hover {
 			background: ${boxBgHoverColor};
+		}
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
+		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
+			color: ${ratingColor};
 		}
 	`;
   const tabStyles = `
@@ -363,7 +354,8 @@ const Inspector = _ref => {
     titleHoverColor,
     descriptionHoverColor,
     designationHoverColor,
-    boxBgHoverColor
+    boxBgHoverColor,
+    ratingColor
   } = attributes;
   const objAttrs = {
     attributes,
@@ -465,6 +457,19 @@ const Inspector = _ref => {
             }]
           });
         }
+      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating', 'bdt-review-blocks'),
+        initialOpen: false
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Color', 'bdt-review-blocks'),
+        initialOpen: false,
+        colorSettings: [{
+          value: ratingColor,
+          onChange: value => setAttributes({
+            ratingColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Color', 'bdt-review-blocks')
+        }]
       })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Item Box', 'bdt-review-blocks'),
         initialOpen: false
