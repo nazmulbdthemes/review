@@ -244,7 +244,7 @@ function Edit(_ref) {
     onChange: value => setAttributes({
       clientName: value
     }),
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write client name', 'clr')
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write client name', 'bdt-review-blocks')
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "span",
     className: 'bdt-designation',
@@ -252,7 +252,7 @@ function Edit(_ref) {
     onChange: value => setAttributes({
       clientDesg: value
     }),
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write your designation', 'clr')
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write your designation', 'bdt-review-blocks')
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "p",
     className: 'bdt-desc',
@@ -260,7 +260,7 @@ function Edit(_ref) {
     onChange: value => setAttributes({
       clientComment: value
     }),
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write client comment', 'clr')
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Write client comment', 'bdt-review-blocks')
   })), showRating && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-review-icon"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((react_rater__WEBPACK_IMPORTED_MODULE_5___default()), {

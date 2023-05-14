@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { PanelBody, TabPanel} from '@wordpress/components';
+import { PanelBody, TabPanel, TextControl, TextareaControl} from '@wordpress/components';
 const { Fragment } = wp.element;
 
 /**
@@ -19,7 +19,7 @@ const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESG_FONT_SIZE, DESC_FO
 import objAttributes from './attributes';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor,  } = attributes;
+	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor, clientName, clientDesg, clientComment  } = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	return (
@@ -28,22 +28,65 @@ const Inspector = ({ attributes, setAttributes }) => {
 				<TabPanel
 					className="bdt-tab-panel"
 					activeClass="active-tab"
-					initialTabName="bdt_general"
+					initialTabName="bdt_content"
 					tabs={[
 						{
-							name: 'bdt_general',
-							title: __('Generral', 'text-domain'),
+							name: 'bdt_content',
+							title: __('Content', 'bdt-review-blocks'),
 							className: 'bdt-tab bdt-general',
 						},
 						{
-							name: 'bdt_advanced',
-							title: __('Advanced', 'text-domain'),
+							name: 'bdt_settings',
+							title: __('Settings', 'bdt-review-blocks'),
 							className: 'bdt-tab bdt-advanced',
 						},
 					]}
 				>
 					{(tabMain) => {
-						if (tabMain.name === 'bdt_general') {
+						if (tabMain.name === 'bdt_content') {
+							return (
+								<Fragment>
+									<InspectorControls>
+										<TextControl
+											label={__(
+												'Reviewer Name',
+												'bdt-review-blocks'
+											)}
+											value={clientName}
+											onChange={(value) =>
+												setAttributes({
+													clientName: value,
+												})
+											}
+										/>
+										<TextControl
+											label={__(
+												'Reviewer Designation',
+												'bdt-review-blocks'
+											)}
+											value={clientDesg}
+											onChange={(value) =>
+												setAttributes({
+													clientDesg: value,
+												})
+											}
+										/>
+										<TextareaControl
+											label={__(
+												'Reviewer Comment',
+												'bdt-review-blocks'
+											)}
+											value={clientComment}
+											onChange={(value) =>
+												setAttributes({
+													clientComment: value,
+												})
+											}
+										/>
+									</InspectorControls>
+								</Fragment>
+							);
+						} else if (tabMain.name === 'bdt_settings') {
 							return (
 								<Fragment>
 									<PanelBody
@@ -460,12 +503,11 @@ const Inspector = ({ attributes, setAttributes }) => {
 									</PanelBody>
 								</Fragment>
 							);
-						} else if (tabMain.name === 'bdt_advanced') {
-							return <div>Advanced</div>;
 						}
 					}}
 				</TabPanel>
 			</InspectorControls>
+			
 		</div>
 	);
 };

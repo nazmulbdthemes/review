@@ -74,11 +74,11 @@ const attributes = {
     }
   }),
   ...generateResRangleControlAttributes({
-    controlName: GRID_GAP,
+    controlGap: GRID_GAP,
     defaults: {
-      [`${GRID_GAP}DeskRange`]: 30,
-      [`${GRID_GAP}TabRange`]: 30,
-      [`${GRID_GAP}MobRange`]: 30
+      [`${GRID_GAP}DeskRangeGap`]: 30,
+      [`${GRID_GAP}TabRangeGap`]: 30,
+      [`${GRID_GAP}MobRangeGap`]: 30
     }
   }),
   ...generateResRangleControlAttributes({
@@ -244,36 +244,35 @@ function Edit(_ref) {
   const deskDesgFont = attributes[`${DESG_FONT_SIZE}DeskRange`];
   const tabDesgFont = attributes[`${DESG_FONT_SIZE}TabRange`];
   const mobDesgFont = attributes[`${DESG_FONT_SIZE}MobRange`];
-  const DesgFontUnit = attributes[`${DESG_FONT_SIZE}Unit`]; // DESC Font Size
+  const desgFontUnit = attributes[`${DESG_FONT_SIZE}Unit`]; // DESC Font Size
 
   const deskDescFont = attributes[`${DESC_FONT_SIZE}DeskRange`];
   const tabDescFont = attributes[`${DESC_FONT_SIZE}TabRange`];
   const mobDescFont = attributes[`${DESC_FONT_SIZE}MobRange`];
-  const DescFontUnit = attributes[`${DESC_FONT_SIZE}Unit`]; // Rating Size
+  const descFontUnit = attributes[`${DESC_FONT_SIZE}Unit`]; // Rating Size
 
   const deskRatingSize = attributes[`${RATING_SIZE}DeskRange`];
   const tabRatingSize = attributes[`${RATING_SIZE}TabRange`];
   const mobRatingSize = attributes[`${RATING_SIZE}MobRange`];
   const ratingUnit = attributes[`${RATING_SIZE}Unit`];
-  console.log(deskGap);
   const deskStyles = `
 
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${deskCols}, 1fr);
-			grid-column-gap: ${deskGap}px;
-			grid-row-gap: ${deskRowGap}px;
+			grid-column-gap: ${deskGap}${gapUnit};
+			grid-row-gap: ${deskRowGap}${gapRowUnit};
 		}
 		.${uniqueId} .bdt-name {
 			color: ${titleColor}!important;
-			font-size: ${deskNameFont}px!important;
+			font-size: ${deskNameFont}${nameFontUnit}!important;
 		}
 		.${uniqueId} .bdt-designation {
 			color: ${designationColor};
-			font-size: ${deskDesgFont}px!important;
+			font-size: ${deskDesgFont}${desgFontUnit}!important;
 		}
 		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
-			font-size: ${deskDescFont}px!important;
+			font-size: ${deskDescFont}${descFontUnit}!important;
 		}
 		.${uniqueId} .bdt-item, 
 		.${uniqueId} .wp-block-bdt-review-item  {
@@ -302,49 +301,49 @@ function Edit(_ref) {
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
-			font-size: ${deskRatingSize}px!important;
+			font-size: ${deskRatingSize}${ratingUnit}!important;
 		}
 	`;
   const tabStyles = `
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${tabCols}, 1fr);
-			grid-column-gap: ${tabGap}px;
-			grid-row-gap: ${tabRowGap}px;
+			grid-column-gap: ${tabGap}${gapUnit};
+			grid-row-gap: ${tabRowGap}${gapRowUnit};
 		}
 		.${uniqueId} .bdt-name {
-			font-size: ${tabNameFont}px!important;
+			font-size: ${tabNameFont}${nameFontUnit}!important;
 		}
 		.${uniqueId} .bdt-designation {
-			font-size: ${tabDesgFont}px!important;
+			font-size: ${tabDesgFont}${desgFontUnit}!important;
 		}
 		.${uniqueId} .bdt-desc {
-			font-size: ${tabDescFont}px!important;
+			font-size: ${tabDescFont}${descFontUnit}!important;
 		}
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
-			font-size: ${tabRatingSize}px!important;
+			font-size: ${tabRatingSize}${ratingUnit}!important;
 		}
 	`;
   const mobStyles = `
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${mobCols}, 1fr);
-			grid-column-gap: ${mobGap}px;
-			grid-row-gap: ${mobRowGap}px;
+			grid-column-gap: ${mobGap}${gapUnit};
+			grid-row-gap: ${mobRowGap}${gapRowUnit};
 		}
 		.${uniqueId} .bdt-name {
-			font-size: ${mobNameFont}px!important;
+			font-size: ${mobNameFont}${nameFontUnit}!important;
 		}
 		.${uniqueId} .bdt-designation {
-			font-size: ${mobDesgFont}px!important;
+			font-size: ${mobDesgFont}${desgFontUnit}!important;
 		}
 		.${uniqueId} .bdt-desc {
-			font-size: ${mobDescFont}px!important;
+			font-size: ${mobDescFont}${descFontUnit}!important;
 		}
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
-			font-size: ${mobRatingSize}px!important;
+			font-size: ${mobRatingSize}${ratingUnit}!important;
 		}
 	`;
   /**
@@ -506,7 +505,10 @@ const Inspector = _ref => {
     descriptionHoverColor,
     designationHoverColor,
     boxBgHoverColor,
-    ratingColor
+    ratingColor,
+    clientName,
+    clientDesg,
+    clientComment
   } = attributes;
   const objAttrs = {
     attributes,
@@ -518,18 +520,38 @@ const Inspector = _ref => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
     className: "bdt-tab-panel",
     activeClass: "active-tab",
-    initialTabName: "bdt_general",
+    initialTabName: "bdt_content",
     tabs: [{
-      name: 'bdt_general',
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Generral', 'text-domain'),
+      name: 'bdt_content',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content', 'bdt-review-blocks'),
       className: 'bdt-tab bdt-general'
     }, {
-      name: 'bdt_advanced',
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Advanced', 'text-domain'),
+      name: 'bdt_settings',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'bdt-review-blocks'),
       className: 'bdt-tab bdt-advanced'
     }]
   }, tabMain => {
-    if (tabMain.name === 'bdt_general') {
+    if (tabMain.name === 'bdt_content') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Reviewer Name', 'bdt-review-blocks'),
+        value: clientName,
+        onChange: value => setAttributes({
+          clientName: value
+        })
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Reviewer Designation', 'bdt-review-blocks'),
+        value: clientDesg,
+        onChange: value => setAttributes({
+          clientDesg: value
+        })
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextareaControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Reviewer Comment', 'bdt-review-blocks'),
+        value: clientComment,
+        onChange: value => setAttributes({
+          clientComment: value
+        })
+      })));
+    } else if (tabMain.name === 'bdt_settings') {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Settings', 'bdt-review-blocks')
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
@@ -713,8 +735,6 @@ const Inspector = _ref => {
           });
         }
       })));
-    } else if (tabMain.name === 'bdt_advanced') {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Advanced");
     }
   })));
 };
@@ -875,7 +895,7 @@ const ResRangleControl = _ref => {
     [`${controlName}MobRange`]: mobRange,
     [`${controlName}Unit`]: unit
   } = attributes;
-  if (!units) units = units || ['px', 'em'];
+  if (!units) units = units || ['px', 'em', 'rem'];
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-res-rangle-control"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Flex, {
@@ -888,15 +908,15 @@ const ResRangleControl = _ref => {
     setAttributes: setAttributes
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, !noUnits && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "units-wrapper"
-  }, units && units.map((unit, index) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-      className: "single-unit",
-      variant: unit === unit ? 'primary' : 'secondary',
+  }, units && units.map((u, index) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      className: "unit-btn",
+      variant: unit === u ? 'primary' : 'secondary',
       key: index,
       onClick: () => setAttributes({
-        [`${controlName}Unit`]: unit
+        [`${controlName}Unit`]: u
       })
-    }, unit);
+    }, u);
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "res-controls"
   }, resMode === 'Desktop' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {

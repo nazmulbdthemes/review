@@ -59,37 +59,36 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const deskDesgFont = attributes[`${DESG_FONT_SIZE}DeskRange`];
 	const tabDesgFont = attributes[`${DESG_FONT_SIZE}TabRange`];
 	const mobDesgFont = attributes[`${DESG_FONT_SIZE}MobRange`];
-	const DesgFontUnit = attributes[`${DESG_FONT_SIZE}Unit`];
+	const desgFontUnit = attributes[`${DESG_FONT_SIZE}Unit`];
 	// DESC Font Size
 	const deskDescFont = attributes[`${DESC_FONT_SIZE}DeskRange`];
 	const tabDescFont = attributes[`${DESC_FONT_SIZE}TabRange`];
 	const mobDescFont = attributes[`${DESC_FONT_SIZE}MobRange`];
-	const DescFontUnit = attributes[`${DESC_FONT_SIZE}Unit`];
+	const descFontUnit = attributes[`${DESC_FONT_SIZE}Unit`];
 	// Rating Size
 	const deskRatingSize = attributes[`${RATING_SIZE}DeskRange`];
 	const tabRatingSize = attributes[`${RATING_SIZE}TabRange`];
 	const mobRatingSize = attributes[`${RATING_SIZE}MobRange`];
 	const ratingUnit = attributes[`${RATING_SIZE}Unit`];
-	console.log(deskGap);
 
 	const deskStyles = `
 
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${deskCols}, 1fr);
-			grid-column-gap: ${deskGap}px;
-			grid-row-gap: ${deskRowGap}px;
+			grid-column-gap: ${deskGap}${gapUnit};
+			grid-row-gap: ${deskRowGap}${gapRowUnit};
 		}
 		.${uniqueId} .bdt-name {
 			color: ${titleColor}!important;
-			font-size: ${deskNameFont}px!important;
+			font-size: ${deskNameFont}${nameFontUnit}!important;
 		}
 		.${uniqueId} .bdt-designation {
 			color: ${designationColor};
-			font-size: ${deskDesgFont}px!important;
+			font-size: ${deskDesgFont}${desgFontUnit}!important;
 		}
 		.${uniqueId} .bdt-desc {
 			color: ${descriptionColor};
-			font-size: ${deskDescFont}px!important;
+			font-size: ${deskDescFont}${descFontUnit}!important;
 		}
 		.${uniqueId} .bdt-item, 
 		.${uniqueId} .wp-block-bdt-review-item  {
@@ -118,49 +117,49 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
-			font-size: ${deskRatingSize}px!important;
+			font-size: ${deskRatingSize}${ratingUnit}!important;
 		}
 	`;
 	const tabStyles = `
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${tabCols}, 1fr);
-			grid-column-gap: ${tabGap}px;
-			grid-row-gap: ${tabRowGap}px;
+			grid-column-gap: ${tabGap}${gapUnit};
+			grid-row-gap: ${tabRowGap}${gapRowUnit};
 		}
 		.${uniqueId} .bdt-name {
-			font-size: ${tabNameFont}px!important;
+			font-size: ${tabNameFont}${nameFontUnit}!important;
 		}
 		.${uniqueId} .bdt-designation {
-			font-size: ${tabDesgFont}px!important;
+			font-size: ${tabDesgFont}${desgFontUnit}!important;
 		}
 		.${uniqueId} .bdt-desc {
-			font-size: ${tabDescFont}px!important;
+			font-size: ${tabDescFont}${descFontUnit}!important;
 		}
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
-			font-size: ${tabRatingSize}px!important;
+			font-size: ${tabRatingSize}${ratingUnit}!important;
 		}
 	`;
 	const mobStyles = `
 		.${uniqueId} .block-editor-block-list__layout {
 			grid-template-columns: repeat(${mobCols}, 1fr);
-			grid-column-gap: ${mobGap}px;
-			grid-row-gap: ${mobRowGap}px;
+			grid-column-gap: ${mobGap}${gapUnit};
+			grid-row-gap: ${mobRowGap}${gapRowUnit};
 		}
 		.${uniqueId} .bdt-name {
-			font-size: ${mobNameFont}px!important;
+			font-size: ${mobNameFont}${nameFontUnit}!important;
 		}
 		.${uniqueId} .bdt-designation {
-			font-size: ${mobDesgFont}px!important;
+			font-size: ${mobDesgFont}${desgFontUnit}!important;
 		}
 		.${uniqueId} .bdt-desc {
-			font-size: ${mobDescFont}px!important;
+			font-size: ${mobDescFont}${descFontUnit}!important;
 		}
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
-			font-size: ${mobRatingSize}px!important;
+			font-size: ${mobRatingSize}${ratingUnit}!important;
 		}
 	`;
 

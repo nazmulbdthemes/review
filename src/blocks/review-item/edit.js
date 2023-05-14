@@ -119,7 +119,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									onChange={(value) =>
 										setAttributes({ clientName: value })
 									}
-									placeholder={__('Write client name', 'clr')}
+									placeholder={__(
+										'Write client name',
+										'bdt-review-blocks'
+									)}
 								/>
 								<RichText
 									tagName="span"
@@ -130,7 +133,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									}
 									placeholder={__(
 										'Write your designation',
-										'clr'
+										'bdt-review-blocks'
 									)}
 								/>
 								<RichText
@@ -142,7 +145,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 									}
 									placeholder={__(
 										'Write client comment',
-										'clr'
+										'bdt-review-blocks'
 									)}
 								/>
 							</div>
@@ -159,6 +162,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 					</div>
 				</div>
 			</div>
+			
 		</Fragment>
 	);
 }
