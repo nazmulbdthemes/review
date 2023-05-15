@@ -76,9 +76,9 @@ const attributes = {
   ...generateResRangleControlAttributes({
     controlGap: GRID_GAP,
     defaults: {
-      [`${GRID_GAP}DeskRangeGap`]: 30,
-      [`${GRID_GAP}TabRangeGap`]: 30,
-      [`${GRID_GAP}MobRangeGap`]: 30
+      [`${GRID_GAP}DeskRange`]: 30,
+      [`${GRID_GAP}TabRange`]: 30,
+      [`${GRID_GAP}MobRange`]: 30
     }
   }),
   ...generateResRangleControlAttributes({
@@ -505,10 +505,7 @@ const Inspector = _ref => {
     descriptionHoverColor,
     designationHoverColor,
     boxBgHoverColor,
-    ratingColor,
-    clientName,
-    clientDesg,
-    clientComment
+    ratingColor
   } = attributes;
   const objAttrs = {
     attributes,
@@ -543,14 +540,14 @@ const Inspector = _ref => {
         noUnits: true,
         min: 1,
         max: 4
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
         label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Gap', 'bdt-review-blocks'),
         controlName: GRID_GAP,
         objAttrs: objAttrs,
         noUnits: false,
         min: 0,
         max: 100
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
         label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Row Gap', 'bdt-review-blocks'),
         controlName: ROW_GAP,
         objAttrs: objAttrs,
@@ -614,14 +611,14 @@ const Inspector = _ref => {
             noUnits: false,
             min: 1,
             max: 100
-          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
             label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Font Size', 'bdt-review-blocks'),
             controlName: DESG_FONT_SIZE,
             objAttrs: objAttrs,
             noUnits: false,
             min: 1,
             max: 100
-          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
             label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Font Size', 'bdt-review-blocks'),
             controlName: DESC_FONT_SIZE,
             objAttrs: objAttrs,

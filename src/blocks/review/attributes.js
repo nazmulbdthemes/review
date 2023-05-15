@@ -56,9 +56,9 @@ const attributes = {
 	...generateResRangleControlAttributes({
 		controlGap: GRID_GAP,
 		defaults: {
-			[`${GRID_GAP}DeskRangeGap`]: 30,
-			[`${GRID_GAP}TabRangeGap`]: 30,
-			[`${GRID_GAP}MobRangeGap`]: 30,
+			[`${GRID_GAP}DeskRange`]: 30,
+			[`${GRID_GAP}TabRange`]: 30,
+			[`${GRID_GAP}MobRange`]: 30,
 		},
 	}),
 	...generateResRangleControlAttributes({

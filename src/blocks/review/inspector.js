@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { PanelBody, TabPanel, TextControl, TextareaControl} from '@wordpress/components';
+import { PanelBody, TabPanel, CardDivider} from '@wordpress/components';
 const { Fragment } = wp.element;
 
 /**
@@ -19,7 +19,7 @@ const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESG_FONT_SIZE, DESC_FO
 import objAttributes from './attributes';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor, clientName, clientDesg, clientComment  } = attributes;
+	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	return (
@@ -71,6 +71,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 											min={1}
 											max={4}
 										/>
+										<CardDivider />
 										<ResRangleControl
 											label={__(
 												'Column Gap',
@@ -82,6 +83,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 											min={0}
 											max={100}
 										/>
+										<CardDivider />
 										<ResRangleControl
 											label={__(
 												'Row Gap',
@@ -229,6 +231,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 																min={1}
 																max={100}
 															/>
+															<CardDivider />
 															<ResRangleControl
 																label={__(
 																	'Designation Font Size',
@@ -244,6 +247,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 																min={1}
 																max={100}
 															/>
+															<CardDivider />
 															<ResRangleControl
 																label={__(
 																	'Description Font Size',
