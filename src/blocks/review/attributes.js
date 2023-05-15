@@ -45,6 +45,10 @@ const attributes = {
 	ratingColor: {
 		type: 'string',
 	},
+	textAlign: {
+		type: 'string',
+		default: 'left',
+	},
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,
 		defaults: {
@@ -72,7 +76,7 @@ const attributes = {
 	...generateResRangleControlAttributes({
 		controlName: NAME_FONT_SIZE,
 		defaults: {
-			[`${NAME_FONT_SIZE}DeskRange`]: 22,
+			[`${NAME_FONT_SIZE}DeskRange`]: 20,
 			[`${NAME_FONT_SIZE}TabRange`]: 18,
 			[`${NAME_FONT_SIZE}MobRange`]: 16,
 		},
@@ -80,25 +84,25 @@ const attributes = {
 	...generateResRangleControlAttributes({
 		controlName: DESG_FONT_SIZE,
 		defaults: {
-			[`${DESG_FONT_SIZE}DeskRange`]: 22,
-			[`${DESG_FONT_SIZE}TabRange`]: 18,
-			[`${DESG_FONT_SIZE}MobRange`]: 16,
+			[`${DESG_FONT_SIZE}DeskRange`]: 13,
+			[`${DESG_FONT_SIZE}TabRange`]: 13,
+			[`${DESG_FONT_SIZE}MobRange`]: 13,
 		},
 	}),
 	...generateResRangleControlAttributes({
 		controlName: DESC_FONT_SIZE,
 		defaults: {
-			[`${DESC_FONT_SIZE}DeskRange`]: 22,
-			[`${DESC_FONT_SIZE}TabRange`]: 18,
-			[`${DESC_FONT_SIZE}MobRange`]: 16,
+			[`${DESC_FONT_SIZE}DeskRange`]: 15,
+			[`${DESC_FONT_SIZE}TabRange`]: 15,
+			[`${DESC_FONT_SIZE}MobRange`]: 15,
 		},
 	}),
 	...generateResRangleControlAttributes({
 		controlName: RATING_SIZE,
 		defaults: {
-			[`${RATING_SIZE}DeskRange`]: 22,
-			[`${RATING_SIZE}TabRange`]: 18,
-			[`${RATING_SIZE}MobRange`]: 16,
+			[`${RATING_SIZE}DeskRange`]: 14,
+			[`${RATING_SIZE}TabRange`]: 14,
+			[`${RATING_SIZE}MobRange`]: 14,
 		},
 	}),
 };

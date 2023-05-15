@@ -26,9 +26,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		designationHoverColor,
 		boxBgColor,
 		boxBgHoverColor,
-		ratingColor
+		ratingColor,
+		textAlign
 	} = attributes;
-
+	console.log(textAlign);
 	useEffect(() => {
 		if (!uniqueId) {
 			setAttributes({
@@ -77,6 +78,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			grid-template-columns: repeat(${deskCols}, 1fr);
 			grid-column-gap: ${deskGap}${gapUnit};
 			grid-row-gap: ${deskRowGap}${gapRowUnit};
+		}
+		.${uniqueId} .bdt-content {
+			text-align: ${textAlign}!important;
 		}
 		.${uniqueId} .bdt-name {
 			color: ${titleColor}!important;

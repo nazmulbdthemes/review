@@ -134,5 +134,24 @@
 .res-controls .components-base-control {
   margin-bottom: 0px !important;
 }
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/controls/alignment/alignment.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+.bdt-Alignment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bdt-Alignment .bdt-label {
+  margin: 0;
+}
+.bdt-Alignment .bdt-single-icon {
+  background: #0000;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+.bdt-Alignment .bdt-single-icon.active {
+  background: #eae5e5;
+}
 
 /*# sourceMappingURL=index.css.map*/

@@ -11,17 +11,18 @@ const { Fragment } = wp.element;
  */
 import * as Constants from './constants';
 import * as Controls from '../../controls';
-import './editor.scss';
 
+import './editor.scss';
+import Alignment from '../../controls/alignment/alignment';
+import aligns from '../../options/align';
 const { ResRangleControl } = Controls;
 const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESG_FONT_SIZE, DESC_FONT_SIZE, RATING_SIZE } = Constants;
 
 import objAttributes from './attributes';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor} = attributes;
+	const { titleColor, descriptionColor, designationColor, boxBgColor, titleHoverColor, descriptionHoverColor, designationHoverColor, boxBgHoverColor, ratingColor, textAlign} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
-
 	return (
 		<div className="bdt-inspector-controls">
 			<InspectorControls>
@@ -262,6 +263,20 @@ const Inspector = ({ attributes, setAttributes }) => {
 																noUnits={false}
 																min={1}
 																max={100}
+															/>
+															<Alignment
+																label={__(
+																	'Alignment',
+																	'bdt-review-blocks'
+																)}
+																attribute={
+																	textAlign
+																}
+																attributeName="textAlign"
+																setAttributes={
+																	setAttributes
+																}
+																options={aligns}
 															/>
 														</Fragment>
 													);

@@ -65,6 +65,10 @@ const attributes = {
   ratingColor: {
     type: 'string'
   },
+  textAlign: {
+    type: 'string',
+    default: 'left'
+  },
   ...generateResRangleControlAttributes({
     controlName: GRID_COLUMNS,
     defaults: {
@@ -92,7 +96,7 @@ const attributes = {
   ...generateResRangleControlAttributes({
     controlName: NAME_FONT_SIZE,
     defaults: {
-      [`${NAME_FONT_SIZE}DeskRange`]: 22,
+      [`${NAME_FONT_SIZE}DeskRange`]: 20,
       [`${NAME_FONT_SIZE}TabRange`]: 18,
       [`${NAME_FONT_SIZE}MobRange`]: 16
     }
@@ -100,25 +104,25 @@ const attributes = {
   ...generateResRangleControlAttributes({
     controlName: DESG_FONT_SIZE,
     defaults: {
-      [`${DESG_FONT_SIZE}DeskRange`]: 22,
-      [`${DESG_FONT_SIZE}TabRange`]: 18,
-      [`${DESG_FONT_SIZE}MobRange`]: 16
+      [`${DESG_FONT_SIZE}DeskRange`]: 13,
+      [`${DESG_FONT_SIZE}TabRange`]: 13,
+      [`${DESG_FONT_SIZE}MobRange`]: 13
     }
   }),
   ...generateResRangleControlAttributes({
     controlName: DESC_FONT_SIZE,
     defaults: {
-      [`${DESC_FONT_SIZE}DeskRange`]: 22,
-      [`${DESC_FONT_SIZE}TabRange`]: 18,
-      [`${DESC_FONT_SIZE}MobRange`]: 16
+      [`${DESC_FONT_SIZE}DeskRange`]: 15,
+      [`${DESC_FONT_SIZE}TabRange`]: 15,
+      [`${DESC_FONT_SIZE}MobRange`]: 15
     }
   }),
   ...generateResRangleControlAttributes({
     controlName: RATING_SIZE,
     defaults: {
-      [`${RATING_SIZE}DeskRange`]: 22,
-      [`${RATING_SIZE}TabRange`]: 18,
-      [`${RATING_SIZE}MobRange`]: 16
+      [`${RATING_SIZE}DeskRange`]: 14,
+      [`${RATING_SIZE}TabRange`]: 14,
+      [`${RATING_SIZE}MobRange`]: 14
     }
   })
 };
@@ -213,8 +217,10 @@ function Edit(_ref) {
     designationHoverColor,
     boxBgColor,
     boxBgHoverColor,
-    ratingColor
+    ratingColor,
+    textAlign
   } = attributes;
+  console.log(textAlign);
   useEffect(() => {
     if (!uniqueId) {
       setAttributes({
@@ -261,6 +267,9 @@ function Edit(_ref) {
 			grid-template-columns: repeat(${deskCols}, 1fr);
 			grid-column-gap: ${deskGap}${gapUnit};
 			grid-row-gap: ${deskRowGap}${gapRowUnit};
+		}
+		.${uniqueId} .bdt-content {
+			text-align: ${textAlign}!important;
 		}
 		.${uniqueId} .bdt-name {
 			color: ${titleColor}!important;
@@ -458,7 +467,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ "./src/blocks/review/constants/index.js");
 /* harmony import */ var _controls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../controls */ "./src/controls/index.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/review/editor.scss");
-/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./attributes */ "./src/blocks/review/attributes.js");
+/* harmony import */ var _controls_alignment_alignment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../controls/alignment/alignment */ "./src/controls/alignment/alignment.js");
+/* harmony import */ var _options_align__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../options/align */ "./src/options/align.js");
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./attributes */ "./src/blocks/review/attributes.js");
 
 
 /**
@@ -473,6 +484,8 @@ const {
 /**
  * Internal dependencies
  */
+
+
 
 
 
@@ -505,12 +518,13 @@ const Inspector = _ref => {
     descriptionHoverColor,
     designationHoverColor,
     boxBgHoverColor,
-    ratingColor
+    ratingColor,
+    textAlign
   } = attributes;
   const objAttrs = {
     attributes,
     setAttributes,
-    objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_7__["default"]
+    objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_9__["default"]
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-inspector-controls"
@@ -625,6 +639,12 @@ const Inspector = _ref => {
             noUnits: false,
             min: 1,
             max: 100
+          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controls_alignment_alignment__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alignment', 'bdt-review-blocks'),
+            attribute: textAlign,
+            attributeName: "textAlign",
+            setAttributes: setAttributes,
+            options: _options_align__WEBPACK_IMPORTED_MODULE_8__["default"]
           }));
         } else if (tabContent.name === 'bdt_review_hover') {
           return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
@@ -749,6 +769,50 @@ function save(_ref) {
     className: `${uniqueId} bdt-item`
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
 }
+
+/***/ }),
+
+/***/ "./src/controls/alignment/alignment.js":
+/*!*********************************************!*\
+  !*** ./src/controls/alignment/alignment.js ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alignment_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./alignment.scss */ "./src/controls/alignment/alignment.scss");
+
+
+
+const Alignment = _ref => {
+  let {
+    label,
+    attribute,
+    attributeName,
+    setAttributes,
+    options
+  } = _ref;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "bdt-Alignment"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "bdt-label"
+  }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "bdt-alignment-icon-wrapper"
+  }, options && options.map((option, index) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      className: `bdt-single-icon ${attribute === option.value ? 'active' : ''}`,
+      onClick: () => setAttributes({
+        [attributeName]: option.value
+      }),
+      key: index
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: `dashicons dashicons-editor-${option.icon}`
+    }));
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Alignment);
 
 /***/ }),
 
@@ -991,6 +1055,30 @@ const softMinifyCssStrings = function () {
 
 /***/ }),
 
+/***/ "./src/options/align.js":
+/*!******************************!*\
+  !*** ./src/options/align.js ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const aligns = [{
+  icon: 'alignleft',
+  value: 'left'
+}, {
+  icon: 'aligncenter',
+  value: 'center'
+}, {
+  icon: 'alignright',
+  value: 'right'
+}, {
+  icon: 'justify',
+  value: 'justify'
+}];
+/* harmony default export */ __webpack_exports__["default"] = (aligns);
+
+/***/ }),
+
 /***/ "./src/blocks/review/editor.scss":
 /*!***************************************!*\
   !*** ./src/blocks/review/editor.scss ***!
@@ -1007,6 +1095,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************!*\
   !*** ./src/blocks/review/style.scss ***!
   \**************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/controls/alignment/alignment.scss":
+/*!***********************************************!*\
+  !*** ./src/controls/alignment/alignment.scss ***!
+  \***********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
