@@ -19,8 +19,6 @@ import { softMinifyCssStrings } from '../../helper/softminify';
 
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
-		uniqueId,
-		blockStyle,
 		titleColor,
 		descriptionColor,
 		photo,
@@ -32,53 +30,21 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		designationColor
 	} = attributes;
 
-	useEffect(() => {
-		if (!uniqueId) {
-			setAttributes({ uniqueId: `bdt-blocks-${clientId.slice(0, 8)}` });
-		}
-	}, []);
+	
 
-	const deskStyles = `
-		.${uniqueId} .bdt-name {
-			color: ${titleColor};
-		}
-		.${uniqueId} .bdt-designation {
-			color: ${designationColor};
-		}
-		.${uniqueId} .bdt-desc {
-			color: ${descriptionColor};
-		}
-	`;
-	const tabStyles = ``;
-	const mobStyles = ``;
+	
 
 	/**
 	 * Block All Styles
 	 */
-	const blockStyleCss = `
-		${deskStyles}
-		@media (max-width: 1024px) and (min-width: 768px) {
-			${tabStyles}
-		}
-		@media (max-width: 767px) {
-			${mobStyles}
-		}
-	`;
+	
 
-	useEffect(() => {
-		if (JSON.stringify(blockStyle) !== JSON.stringify(blockStyleCss)) {
-			setAttributes({ blockStyle: blockStyleCss });
-		}
-	}, [attributes]);
 
 	return (
 		<Fragment>
-			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
 			<div
-				{...useBlockProps({
-					className: uniqueId,
-				})}
+				{...useBlockProps()}
 			>
 				<div className="bdt-container">
 					<div className="bdt-review-grid-wrap">

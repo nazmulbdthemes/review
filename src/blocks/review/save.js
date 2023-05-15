@@ -1,7 +1,7 @@
-import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { uniqueId, title, description } = attributes;
+	const { uniqueId } = attributes;
 	return (
 		<div
 			{...useBlockProps.save({

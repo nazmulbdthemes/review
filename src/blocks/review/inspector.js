@@ -47,42 +47,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 							return (
 								<Fragment>
 									<InspectorControls>
-										<TextControl
-											label={__(
-												'Reviewer Name',
-												'bdt-review-blocks'
-											)}
-											value={clientName}
-											onChange={(value) =>
-												setAttributes({
-													clientName: value,
-												})
-											}
-										/>
-										<TextControl
-											label={__(
-												'Reviewer Designation',
-												'bdt-review-blocks'
-											)}
-											value={clientDesg}
-											onChange={(value) =>
-												setAttributes({
-													clientDesg: value,
-												})
-											}
-										/>
-										<TextareaControl
-											label={__(
-												'Reviewer Comment',
-												'bdt-review-blocks'
-											)}
-											value={clientComment}
-											onChange={(value) =>
-												setAttributes({
-													clientComment: value,
-												})
-											}
-										/>
+										
 									</InspectorControls>
 								</Fragment>
 							);

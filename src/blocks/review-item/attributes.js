@@ -1,17 +1,7 @@
-import * as constants from './constants';
-import * as generators from '../../generators';
 
-const { generateResRangleControlAttributes } = generators;
-
-const { GRID_COLUMNS } = constants;
 
 const attributes = {
-	uniqueId: {
-		type: 'string',
-	},
-	blockStyle: {
-		type: 'object',
-	},
+	
 	title: {
 		type: 'string',
 	},
@@ -37,8 +27,11 @@ const attributes = {
 	},
 	clientComment: {
 		type: 'string',
-		default:
-			'Type here some info about this team member, the man very important person of our company.',
+		default:'Type here some info about this team member, the man very important person of our company.',
+	},
+	imgLabel: {
+		type: 'string',
+		default:'Image',
 	},
 	showRating: {
 		type: 'boolean',
@@ -48,22 +41,6 @@ const attributes = {
 		type: 'number',
 		default: 4.5,
 	},
-	icon: {
-		type: 'string',
-		default: 'facebook1',
-	},
-	showIcon: {
-		type: 'boolean',
-		default: true,
-	},
-	...generateResRangleControlAttributes({
-		controlName: GRID_COLUMNS,
-		defaults: {
-			[`${GRID_COLUMNS}DeskRange`]: 3,
-			[`${GRID_COLUMNS}TabRange`]: 2,
-			[`${GRID_COLUMNS}MobRange`]: 1,
-		},
-	}),
 };
 
 export default attributes;

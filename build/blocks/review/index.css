@@ -105,5 +105,26 @@
   align-items: center;
   justify-content: center;
 }
+.bdt-res-rangle-control .units-wrapper {
+  display: flex;
+  gap: 5px;
+}
+.bdt-res-rangle-control .units-wrapper .components-button {
+  border: 1px solid #ddd;
+  padding-bottom: 2px;
+  font-size: 11px;
+  height: 15px;
+  padding: 0 2px;
+}
+.bdt-res-rangle-control .units-wrapper.is-secondary {
+  box-shadow: none;
+}
+.bdt-res-rangle-control .units-wrapper.is-secondary:hover:not(:disabled) {
+  box-shadow: none;
+}
+.bdt-res-rangle-control .units-wrapper.is-primary:hover:not(:disabled) {
+  background: #fff;
+  color: #000;
+}
 
 /*# sourceMappingURL=index.css.map*/

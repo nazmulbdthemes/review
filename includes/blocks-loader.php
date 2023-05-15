@@ -70,7 +70,7 @@ class BDT_REVIEW_BLOCKS_LOADER {
         return array_merge(
             [
                 [
-                    'slug' => 'bdt-review-blocks',
+                    'slug' => 'bdt-blocks',
                     'title' => __( 'BDT Review Blocks', 'bdt-review-blocks' )
                 ],
             ],
