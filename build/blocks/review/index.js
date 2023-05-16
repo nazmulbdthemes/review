@@ -329,41 +329,41 @@ function Edit(_ref) {
 		.${uniqueId} .bdt-content {
 			text-align: ${textAlign};
 		}
-		.${uniqueId} .bdt-name {
-			color: ${titleColor}!important;
+		.${uniqueId} .wp-block-bdt-review-item .bdt-content .bdt-name {
+			color: ${titleColor === undefined ? '#000000' : titleColor};
 			font-size: ${deskNameFont}${nameFontUnit}!important;
 		}
 		.${uniqueId} .bdt-designation {
-			color: ${designationColor};
+			color: ${designationColor === undefined ? '#000000' : designationColor}!important;
 			font-size: ${deskDesgFont}${desgFontUnit}!important;
 		}
 		.${uniqueId} .bdt-desc {
-			color: ${descriptionColor};
+			color: ${descriptionColor === undefined ? '#000000' : descriptionColor}!important;
 			font-size: ${deskDescFont}${descFontUnit}!important;
 		}
 		.${uniqueId} .bdt-item, 
 		.${uniqueId} .wp-block-bdt-review-item  {
-			background: ${boxBgColor};
+			background: ${boxBgColor === undefined ? '#ffffff' : boxBgColor};
 		}
 		.${uniqueId} .bdt-item:hover .bdt-name,
 		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-name {
-			color: ${titleHoverColor};
+			color: ${titleHoverColor === undefined ? '#000000' : titleHoverColor};
 		}
 		.${uniqueId} .bdt-item:hover .bdt-designation,
 		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-designation {
-			color: ${designationHoverColor};
+			color: ${designationHoverColor === undefined ? '#000000' : designationHoverColor};
 		}
 		.${uniqueId} .bdt-item:hover .bdt-desc,
 		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-desc {
-			color: ${descriptionHoverColor};
+			color: ${descriptionHoverColor === undefined ? '#000000' : descriptionHoverColor};
 		}
 		.${uniqueId} .bdt-item:hover,
 		.${uniqueId} .wp-block-bdt-review-item:hover {
-			background: ${boxBgHoverColor};
+			background: ${boxBgHoverColor === undefined ? '#ffffff' : boxBgHoverColor};
 		}
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
-			color: ${ratingColor};
+			color: ${ratingColor === undefined ? '#ff9a00' : ratingColor};
 		}
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
@@ -605,222 +605,209 @@ const Inspector = _ref => {
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-inspector-controls"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Settings', 'bdt-review-blocks')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Number', 'bdt-review-blocks'),
+    controlName: GRID_COLUMNS,
+    objAttrs: objAttrs,
+    noUnits: true,
+    min: 1,
+    max: 4
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Gap', 'bdt-review-blocks'),
+    controlName: GRID_GAP,
+    objAttrs: objAttrs,
+    noUnits: false,
+    min: 0,
+    max: 100
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Row Gap', 'bdt-review-blocks'),
+    controlName: ROW_GAP,
+    objAttrs: objAttrs,
+    noUnits: false,
+    min: 0,
+    max: 100
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Settings', 'bdt-review-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Size', 'bdt-review-blocks'),
+    controlName: IMAGE_SIZE,
+    objAttrs: objAttrs,
+    noUnits: false,
+    min: 1,
+    max: 200
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content', 'bdt-review-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
     className: "bdt-tab-panel",
     activeClass: "active-tab",
-    initialTabName: "bdt_content",
+    initialTabName: "bdt_review_normal",
     tabs: [{
-      name: 'bdt_settings',
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'bdt-review-blocks'),
-      className: 'bdt-tab bdt-advanced'
+      name: 'bdt_review_normal',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Normal', 'bdt-review-blocks'),
+      className: 'bdt-tab bdt-general'
+    }, {
+      name: 'bdt_review_hover',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Hover', 'bdt-review-blocks'),
+      className: 'bdt-tab bdt-style'
     }]
-  }, tabMain => {
-    if (tabMain.name === 'bdt_settings') {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Settings', 'bdt-review-blocks')
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Number', 'bdt-review-blocks'),
-        controlName: GRID_COLUMNS,
-        objAttrs: objAttrs,
-        noUnits: true,
-        min: 1,
-        max: 4
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Gap', 'bdt-review-blocks'),
-        controlName: GRID_GAP,
-        objAttrs: objAttrs,
-        noUnits: false,
-        min: 0,
-        max: 100
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Row Gap', 'bdt-review-blocks'),
-        controlName: ROW_GAP,
-        objAttrs: objAttrs,
-        noUnits: false,
-        min: 0,
-        max: 100
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Setting', 'bdt-review-blocks'),
-        initialOpen: false
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Size', 'bdt-review-blocks'),
-        controlName: IMAGE_SIZE,
-        objAttrs: objAttrs,
-        noUnits: false,
-        min: 1,
-        max: 200
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content', 'bdt-review-blocks'),
-        initialOpen: false
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
-        className: "bdt-tab-panel",
-        activeClass: "active-tab",
-        initialTabName: "bdt_review_normal",
-        tabs: [{
-          name: 'bdt_review_normal',
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Normal', 'bdt-review-blocks'),
-          className: 'bdt-tab bdt-general'
-        }, {
-          name: 'bdt_review_hover',
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Hover', 'bdt-review-blocks'),
-          className: 'bdt-tab bdt-style'
-        }]
-      }, tabContent => {
-        if (tabContent.name === 'bdt_review_normal') {
-          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-            title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
-            initialOpen: false,
-            colorSettings: [{
-              value: titleColor,
-              onChange: value => setAttributes({
-                titleColor: value === undefined ? '#000000' : value
-              }),
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-review-blocks')
-            }, {
-              value: designationColor,
-              onChange: value => setAttributes({
-                designationColor: value
-              }),
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-review-blocks')
-            }, {
-              value: descriptionColor,
-              onChange: value => setAttributes({
-                descriptionColor: value
-              }),
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-review-blocks')
-            }]
-          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Name Font Size', 'bdt-review-blocks'),
-            controlName: NAME_FONT_SIZE,
-            objAttrs: objAttrs,
-            noUnits: false,
-            min: 1,
-            max: 100
-          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Font Size', 'bdt-review-blocks'),
-            controlName: DESG_FONT_SIZE,
-            objAttrs: objAttrs,
-            noUnits: false,
-            min: 1,
-            max: 100
-          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Font Size', 'bdt-review-blocks'),
-            controlName: DESC_FONT_SIZE,
-            objAttrs: objAttrs,
-            noUnits: false,
-            min: 1,
-            max: 100
-          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controls_alignment_alignment__WEBPACK_IMPORTED_MODULE_7__["default"], {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alignment', 'bdt-review-blocks'),
-            attribute: textAlign,
-            attributeName: "textAlign",
-            setAttributes: setAttributes,
-            options: _options_align__WEBPACK_IMPORTED_MODULE_8__["default"]
-          }));
-        } else if (tabContent.name === 'bdt_review_hover') {
-          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-            title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
-            initialOpen: false,
-            colorSettings: [{
-              value: titleHoverColor,
-              onChange: value => setAttributes({
-                titleHoverColor: value
-              }),
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-review-blocks')
-            }, {
-              value: designationHoverColor,
-              onChange: value => setAttributes({
-                designationHoverColor: value
-              }),
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-review-blocks')
-            }, {
-              value: descriptionHoverColor,
-              onChange: value => setAttributes({
-                descriptionHoverColor: value
-              }),
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-review-blocks')
-            }]
-          });
-        }
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating', 'bdt-review-blocks'),
-        initialOpen: false
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Color', 'bdt-review-blocks'),
+  }, tabContent => {
+    if (tabContent.name === 'bdt_review_normal') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
         initialOpen: false,
         colorSettings: [{
-          value: ratingColor,
+          value: titleColor,
           onChange: value => setAttributes({
-            ratingColor: value
+            titleColor: value
           }),
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Color', 'bdt-review-blocks')
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-review-blocks')
+        }, {
+          value: designationColor,
+          onChange: value => setAttributes({
+            designationColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-review-blocks')
+        }, {
+          value: descriptionColor,
+          onChange: value => setAttributes({
+            descriptionColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-review-blocks')
         }]
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Size', 'bdt-review-blocks'),
-        controlName: RATING_SIZE,
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Name Font Size', 'bdt-review-blocks'),
+        controlName: NAME_FONT_SIZE,
         objAttrs: objAttrs,
         noUnits: false,
         min: 1,
         max: 100
-      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Item Box', 'bdt-review-blocks'),
-        initialOpen: false
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
-        className: "bdt-tab-panel",
-        activeClass: "active-tab",
-        initialTabName: "bdt_review_normal",
-        tabs: [{
-          name: 'bdt_review_normal',
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Normal', 'bdt-review-blocks'),
-          className: 'bdt-tab bdt-general'
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Font Size', 'bdt-review-blocks'),
+        controlName: DESG_FONT_SIZE,
+        objAttrs: objAttrs,
+        noUnits: false,
+        min: 1,
+        max: 100
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Font Size', 'bdt-review-blocks'),
+        controlName: DESC_FONT_SIZE,
+        objAttrs: objAttrs,
+        noUnits: false,
+        min: 1,
+        max: 100
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_controls_alignment_alignment__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alignment', 'bdt-review-blocks'),
+        attribute: textAlign,
+        attributeName: "textAlign",
+        setAttributes: setAttributes,
+        options: _options_align__WEBPACK_IMPORTED_MODULE_8__["default"]
+      }));
+    } else if (tabContent.name === 'bdt_review_hover') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
+        initialOpen: false,
+        colorSettings: [{
+          value: titleHoverColor,
+          onChange: value => setAttributes({
+            titleHoverColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-review-blocks')
         }, {
-          name: 'bdt_review_hover',
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Hover', 'bdt-review-blocks'),
-          className: 'bdt-tab bdt-style'
+          value: designationHoverColor,
+          onChange: value => setAttributes({
+            designationHoverColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Designation Color', 'bdt-review-blocks')
+        }, {
+          value: descriptionHoverColor,
+          onChange: value => setAttributes({
+            descriptionHoverColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Description Color', 'bdt-review-blocks')
         }]
-      }, tabBox => {
-        if (tabBox.name === 'bdt_review_normal') {
-          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-            title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
-            initialOpen: false,
-            colorSettings: [{
-              value: boxBgColor,
-              onChange: value => setAttributes({
-                boxBgColor: value
-              }),
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('background Color', 'bdt-review-blocks')
-            }]
-          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'bdt-review-blocks'),
-            controlName: ITEM_PADDING,
-            objAttrs: objAttrs,
-            noUnits: false,
-            min: 1,
-            max: 100
-          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Radius', 'bdt-review-blocks'),
-            controlName: ITEM_BORDER_RADIUS,
-            objAttrs: objAttrs,
-            noUnits: false,
-            min: 1,
-            max: 100
-          }));
-        } else if (tabBox.name === 'bdt_review_hover') {
-          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-            title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
-            initialOpen: false,
-            colorSettings: [{
-              value: boxBgHoverColor,
-              onChange: value => setAttributes({
-                boxBgHoverColor: value
-              }),
-              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color', 'bdt-review-blocks')
-            }]
-          });
-        }
-      })));
+      });
     }
-  })));
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating', 'bdt-review-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Color', 'bdt-review-blocks'),
+    initialOpen: false,
+    colorSettings: [{
+      value: ratingColor,
+      onChange: value => setAttributes({
+        ratingColor: value
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Color', 'bdt-review-blocks')
+    }]
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Rating Size', 'bdt-review-blocks'),
+    controlName: RATING_SIZE,
+    objAttrs: objAttrs,
+    noUnits: false,
+    min: 1,
+    max: 100
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Item Box', 'bdt-review-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
+    className: "bdt-tab-panel",
+    activeClass: "active-tab",
+    initialTabName: "bdt_review_normal",
+    tabs: [{
+      name: 'bdt_review_normal',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Normal', 'bdt-review-blocks'),
+      className: 'bdt-tab bdt-general'
+    }, {
+      name: 'bdt_review_hover',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Hover', 'bdt-review-blocks'),
+      className: 'bdt-tab bdt-style'
+    }]
+  }, tabBox => {
+    if (tabBox.name === 'bdt_review_normal') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
+        initialOpen: false,
+        colorSettings: [{
+          value: boxBgColor,
+          onChange: value => setAttributes({
+            boxBgColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('background Color', 'bdt-review-blocks')
+        }]
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'bdt-review-blocks'),
+        controlName: ITEM_PADDING,
+        objAttrs: objAttrs,
+        noUnits: false,
+        min: 1,
+        max: 100
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Radius', 'bdt-review-blocks'),
+        controlName: ITEM_BORDER_RADIUS,
+        objAttrs: objAttrs,
+        noUnits: false,
+        min: 1,
+        max: 100
+      }));
+    } else if (tabBox.name === 'bdt_review_hover') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
+        initialOpen: false,
+        colorSettings: [{
+          value: boxBgHoverColor,
+          onChange: value => setAttributes({
+            boxBgHoverColor: value
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color', 'bdt-review-blocks')
+        }]
+      });
+    }
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);

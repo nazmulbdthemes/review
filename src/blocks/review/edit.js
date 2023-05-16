@@ -104,41 +104,53 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		.${uniqueId} .bdt-content {
 			text-align: ${textAlign};
 		}
-		.${uniqueId} .bdt-name {
-			color: ${titleColor}!important;
+		.${uniqueId} .wp-block-bdt-review-item .bdt-content .bdt-name {
+			color: ${titleColor === undefined ? '#000000' : titleColor};
 			font-size: ${deskNameFont}${nameFontUnit}!important;
 		}
 		.${uniqueId} .bdt-designation {
-			color: ${designationColor};
+			color: ${
+				designationColor === undefined ? '#000000' : designationColor
+			}!important;
 			font-size: ${deskDesgFont}${desgFontUnit}!important;
 		}
 		.${uniqueId} .bdt-desc {
-			color: ${descriptionColor};
+			color: ${
+				descriptionColor === undefined ? '#000000' : descriptionColor
+			}!important;
 			font-size: ${deskDescFont}${descFontUnit}!important;
 		}
 		.${uniqueId} .bdt-item, 
 		.${uniqueId} .wp-block-bdt-review-item  {
-			background: ${boxBgColor};
+			background: ${boxBgColor === undefined ? '#ffffff' : boxBgColor};
 		}
 		.${uniqueId} .bdt-item:hover .bdt-name,
 		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-name {
-			color: ${titleHoverColor};
+			color: ${titleHoverColor === undefined ? '#000000' : titleHoverColor};
 		}
 		.${uniqueId} .bdt-item:hover .bdt-designation,
 		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-designation {
-			color: ${designationHoverColor};
+			color: ${
+				designationHoverColor === undefined
+					? '#000000'
+					: designationHoverColor
+			};
 		}
 		.${uniqueId} .bdt-item:hover .bdt-desc,
 		.${uniqueId} .wp-block-bdt-review-item:hover .bdt-desc {
-			color: ${descriptionHoverColor};
+			color: ${
+				descriptionHoverColor === undefined
+					? '#000000'
+					: descriptionHoverColor
+			};
 		}
 		.${uniqueId} .bdt-item:hover,
 		.${uniqueId} .wp-block-bdt-review-item:hover {
-			background: ${boxBgHoverColor};
+			background: ${boxBgHoverColor === undefined ? '#ffffff' : boxBgHoverColor};
 		}
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active-half::before {
-			color: ${ratingColor};
+			color: ${ratingColor === undefined ? '#ff9a00' : ratingColor};
 		}
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-active,
 		.${uniqueId} .bdt-review-icon .react-rater-star.is-disabled,
