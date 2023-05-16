@@ -16,7 +16,7 @@ import './editor.scss';
 import Alignment from '../../controls/alignment/alignment';
 import aligns from '../../options/align';
 const { ResRangleControl } = Controls;
-const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESG_FONT_SIZE, DESC_FONT_SIZE, RATING_SIZE } = Constants;
+const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESG_FONT_SIZE, DESC_FONT_SIZE, RATING_SIZE, IMAGE_SIZE } = Constants;
 
 import objAttributes from './attributes';
 
@@ -109,11 +109,11 @@ const Inspector = ({ attributes, setAttributes }) => {
 												'Image Size',
 												'bdt-review-blocks'
 											)}
-											controlName={GRID_COLUMNS}
+											controlName={IMAGE_SIZE}
 											objAttrs={objAttrs}
 											noUnits={false}
 											min={1}
-											max={4}
+											max={200}
 										/>
 									</PanelBody>
 									<PanelBody

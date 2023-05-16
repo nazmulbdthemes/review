@@ -23,10 +23,10 @@
 }
 .bdt-review-grid-wrap .bdt-item .bdt-image-wrap {
   margin-top: -70px;
-}
-.bdt-review-grid-wrap .bdt-item .bdt-image-wrap .bdt-img {
   height: 65px;
   width: 65px;
+}
+.bdt-review-grid-wrap .bdt-item .bdt-image-wrap .bdt-img {
   -o-object-fit: cover;
      object-fit: cover;
   vertical-align: middle;

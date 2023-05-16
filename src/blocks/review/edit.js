@@ -13,7 +13,7 @@ import Inspector from './inspector';
 import { softMinifyCssStrings } from '../../helper/softminify';
 import './style.scss';
 import * as Constants from './constants';
-const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESC_FONT_SIZE, DESG_FONT_SIZE, RATING_SIZE } = Constants;
+const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESC_FONT_SIZE, DESG_FONT_SIZE, RATING_SIZE, IMAGE_SIZE } = Constants;
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
 		uniqueId,
@@ -29,7 +29,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		ratingColor,
 		textAlign
 	} = attributes;
-	console.log(textAlign);
 	useEffect(() => {
 		if (!uniqueId) {
 			setAttributes({
@@ -71,6 +70,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const tabRatingSize = attributes[`${RATING_SIZE}TabRange`];
 	const mobRatingSize = attributes[`${RATING_SIZE}MobRange`];
 	const ratingUnit = attributes[`${RATING_SIZE}Unit`];
+	// Image Size
+	const deskImageSize = attributes[`${IMAGE_SIZE}DeskRange`];
+	const tabImageSize = attributes[`${IMAGE_SIZE}TabRange`];
+	const mobImageSize = attributes[`${IMAGE_SIZE}MobRange`];
+	const imageUnit = attributes[`${IMAGE_SIZE}Unit`];
 
 	const deskStyles = `
 
@@ -78,6 +82,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			grid-template-columns: repeat(${deskCols}, 1fr);
 			grid-column-gap: ${deskGap}${gapUnit};
 			grid-row-gap: ${deskRowGap}${gapRowUnit};
+		}
+		.${uniqueId} .bdt-image-wrap{
+			width: ${deskImageSize}!important;
+			height: ${deskImageSize}!important;
 		}
 		.${uniqueId} .bdt-content {
 			text-align: ${textAlign}!important;
