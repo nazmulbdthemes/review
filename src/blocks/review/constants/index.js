@@ -6,3 +6,5 @@ export const DESG_FONT_SIZE = 'desgFontSize';
 export const DESC_FONT_SIZE = 'descFontSize';
 export const RATING_SIZE = 'ratingSize';
 export const IMAGE_SIZE = 'imageSize';
+export const ITEM_PADDING = 'itemPadding';
+export const ITEM_BORDER_RADIUS = 'itemBorderRadius';

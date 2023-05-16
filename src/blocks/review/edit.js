@@ -13,7 +13,7 @@ import Inspector from './inspector';
 import { softMinifyCssStrings } from '../../helper/softminify';
 import './style.scss';
 import * as Constants from './constants';
-const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESC_FONT_SIZE, DESG_FONT_SIZE, RATING_SIZE, IMAGE_SIZE } = Constants;
+const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESC_FONT_SIZE, DESG_FONT_SIZE, RATING_SIZE, IMAGE_SIZE, ITEM_PADDING, ITEM_BORDER_RADIUS } = Constants;
 export default function Edit({ attributes, setAttributes, clientId }) {
 	const {
 		uniqueId,
@@ -75,6 +75,16 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const tabImageSize = attributes[`${IMAGE_SIZE}TabRange`];
 	const mobImageSize = attributes[`${IMAGE_SIZE}MobRange`];
 	const imageUnit = attributes[`${IMAGE_SIZE}Unit`];
+	// Item Padding
+	const deskItemPadding = attributes[`${ITEM_PADDING}DeskRange`];
+	const tabItemPadding = attributes[`${ITEM_PADDING}TabRange`];
+	const mobItemPadding = attributes[`${ITEM_PADDING}MobRange`];
+	const itemPaddingUnit = attributes[`${ITEM_PADDING}Unit`];
+	// Item Border Radius
+	const deskItemBorderRadius = attributes[`${ITEM_BORDER_RADIUS}DeskRange`];
+	const tabItemBorderRadius = attributes[`${ITEM_BORDER_RADIUS}TabRange`];
+	const mobItemBorderRadius = attributes[`${ITEM_BORDER_RADIUS}MobRange`];
+	const itemBorderRadiusUnit = attributes[`${ITEM_BORDER_RADIUS}Unit`];
 
 	const deskStyles = `
 
@@ -83,12 +93,16 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			grid-column-gap: ${deskGap}${gapUnit};
 			grid-row-gap: ${deskRowGap}${gapRowUnit};
 		}
+		.${uniqueId} .bdt-item{
+			padding: ${deskItemPadding}${itemPaddingUnit};
+			border-radius: ${deskItemBorderRadius}${itemBorderRadiusUnit};
+		}
 		.${uniqueId} .bdt-image-wrap{
-			width: ${deskImageSize}!important;
-			height: ${deskImageSize}!important;
+			width: ${deskImageSize}${imageUnit};
+			height: ${deskImageSize}${imageUnit};
 		}
 		.${uniqueId} .bdt-content {
-			text-align: ${textAlign}!important;
+			text-align: ${textAlign};
 		}
 		.${uniqueId} .bdt-name {
 			color: ${titleColor}!important;
@@ -138,6 +152,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			grid-column-gap: ${tabGap}${gapUnit};
 			grid-row-gap: ${tabRowGap}${gapRowUnit};
 		}
+		.${uniqueId} .bdt-item{
+			padding: ${tabItemPadding}${itemPaddingUnit};
+			border-radius: ${tabItemBorderRadius}${itemBorderRadiusUnit};
+		}
+		.${uniqueId} .bdt-image-wrap{
+			width: ${tabImageSize};
+			height: ${tabImageSize};
+		}
 		.${uniqueId} .bdt-name {
 			font-size: ${tabNameFont}${nameFontUnit}!important;
 		}
@@ -158,6 +180,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			grid-template-columns: repeat(${mobCols}, 1fr);
 			grid-column-gap: ${mobGap}${gapUnit};
 			grid-row-gap: ${mobRowGap}${gapRowUnit};
+		}
+		.${uniqueId} .bdt-item{
+			padding: ${mobItemPadding}${itemPaddingUnit};
+			border-radius: ${mobItemBorderRadius}${itemBorderRadiusUnit};
+		}
+		.${uniqueId} .bdt-image-wrap{
+			width: ${mobImageSize};
+			height: ${mobImageSize};
 		}
 		.${uniqueId} .bdt-name {
 			font-size: ${mobNameFont}${nameFontUnit}!important;

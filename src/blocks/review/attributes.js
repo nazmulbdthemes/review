@@ -3,7 +3,7 @@ import * as generators from '../../generators';
 
 const { generateResRangleControlAttributes } = generators;
 
-const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESC_FONT_SIZE, DESG_FONT_SIZE, RATING_SIZE, IMAGE_SIZE } = constants;
+const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESC_FONT_SIZE, DESG_FONT_SIZE, RATING_SIZE, IMAGE_SIZE, ITEM_BORDER_RADIUS, ITEM_PADDING } = constants;
 
 const attributes = {
 	uniqueId: {
@@ -111,6 +111,22 @@ const attributes = {
 			[`${IMAGE_SIZE}DeskRange`]: 65,
 			[`${IMAGE_SIZE}TabRange`]: 65,
 			[`${IMAGE_SIZE}MobRange`]: 65,
+		},
+	}),
+	...generateResRangleControlAttributes({
+		controlName: ITEM_PADDING,
+		defaults: {
+			[`${ITEM_PADDING}DeskRange`]: '',
+			[`${ITEM_PADDING}TabRange`]: '',
+			[`${ITEM_PADDING}MobRange`]: '',
+		},
+	}),
+	...generateResRangleControlAttributes({
+		controlName: ITEM_BORDER_RADIUS,
+		defaults: {
+			[`${ITEM_BORDER_RADIUS}DeskRange`]: '',
+			[`${ITEM_BORDER_RADIUS}TabRange`]: '',
+			[`${ITEM_BORDER_RADIUS}MobRange`]: '',
 		},
 	}),
 };

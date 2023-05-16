@@ -24,7 +24,9 @@ const {
   DESC_FONT_SIZE,
   DESG_FONT_SIZE,
   RATING_SIZE,
-  IMAGE_SIZE
+  IMAGE_SIZE,
+  ITEM_BORDER_RADIUS,
+  ITEM_PADDING
 } = _constants__WEBPACK_IMPORTED_MODULE_0__;
 const attributes = {
   uniqueId: {
@@ -133,6 +135,22 @@ const attributes = {
       [`${IMAGE_SIZE}TabRange`]: 65,
       [`${IMAGE_SIZE}MobRange`]: 65
     }
+  }),
+  ...generateResRangleControlAttributes({
+    controlName: ITEM_PADDING,
+    defaults: {
+      [`${ITEM_PADDING}DeskRange`]: '',
+      [`${ITEM_PADDING}TabRange`]: '',
+      [`${ITEM_PADDING}MobRange`]: ''
+    }
+  }),
+  ...generateResRangleControlAttributes({
+    controlName: ITEM_BORDER_RADIUS,
+    defaults: {
+      [`${ITEM_BORDER_RADIUS}DeskRange`]: '',
+      [`${ITEM_BORDER_RADIUS}TabRange`]: '',
+      [`${ITEM_BORDER_RADIUS}MobRange`]: ''
+    }
   })
 };
 /* harmony default export */ __webpack_exports__["default"] = (attributes);
@@ -154,7 +172,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "DESG_FONT_SIZE": function() { return /* binding */ DESG_FONT_SIZE; },
 /* harmony export */   "DESC_FONT_SIZE": function() { return /* binding */ DESC_FONT_SIZE; },
 /* harmony export */   "RATING_SIZE": function() { return /* binding */ RATING_SIZE; },
-/* harmony export */   "IMAGE_SIZE": function() { return /* binding */ IMAGE_SIZE; }
+/* harmony export */   "IMAGE_SIZE": function() { return /* binding */ IMAGE_SIZE; },
+/* harmony export */   "ITEM_PADDING": function() { return /* binding */ ITEM_PADDING; },
+/* harmony export */   "ITEM_BORDER_RADIUS": function() { return /* binding */ ITEM_BORDER_RADIUS; }
 /* harmony export */ });
 const GRID_COLUMNS = 'gridColumns';
 const GRID_GAP = 'gridGap';
@@ -164,6 +184,8 @@ const DESG_FONT_SIZE = 'desgFontSize';
 const DESC_FONT_SIZE = 'descFontSize';
 const RATING_SIZE = 'ratingSize';
 const IMAGE_SIZE = 'imageSize';
+const ITEM_PADDING = 'itemPadding';
+const ITEM_BORDER_RADIUS = 'itemBorderRadius';
 
 /***/ }),
 
@@ -210,7 +232,9 @@ const {
   DESC_FONT_SIZE,
   DESG_FONT_SIZE,
   RATING_SIZE,
-  IMAGE_SIZE
+  IMAGE_SIZE,
+  ITEM_PADDING,
+  ITEM_BORDER_RADIUS
 } = _constants__WEBPACK_IMPORTED_MODULE_6__;
 function Edit(_ref) {
   let {
@@ -276,7 +300,17 @@ function Edit(_ref) {
   const deskImageSize = attributes[`${IMAGE_SIZE}DeskRange`];
   const tabImageSize = attributes[`${IMAGE_SIZE}TabRange`];
   const mobImageSize = attributes[`${IMAGE_SIZE}MobRange`];
-  const imageUnit = attributes[`${IMAGE_SIZE}Unit`];
+  const imageUnit = attributes[`${IMAGE_SIZE}Unit`]; // Item Padding
+
+  const deskItemPadding = attributes[`${ITEM_PADDING}DeskRange`];
+  const tabItemPadding = attributes[`${ITEM_PADDING}TabRange`];
+  const mobItemPadding = attributes[`${ITEM_PADDING}MobRange`];
+  const itemPaddingUnit = attributes[`${ITEM_PADDING}Unit`]; // Item Border Radius
+
+  const deskItemBorderRadius = attributes[`${ITEM_BORDER_RADIUS}DeskRange`];
+  const tabItemBorderRadius = attributes[`${ITEM_BORDER_RADIUS}TabRange`];
+  const mobItemBorderRadius = attributes[`${ITEM_BORDER_RADIUS}MobRange`];
+  const itemBorderRadiusUnit = attributes[`${ITEM_BORDER_RADIUS}Unit`];
   const deskStyles = `
 
 		.${uniqueId} .block-editor-block-list__layout {
@@ -284,12 +318,16 @@ function Edit(_ref) {
 			grid-column-gap: ${deskGap}${gapUnit};
 			grid-row-gap: ${deskRowGap}${gapRowUnit};
 		}
+		.${uniqueId} .bdt-item{
+			padding: ${deskItemPadding}${itemPaddingUnit};
+			border-radius: ${deskItemBorderRadius}${itemBorderRadiusUnit};
+		}
 		.${uniqueId} .bdt-image-wrap{
-			width: ${deskImageSize}!important;
-			height: ${deskImageSize}!important;
+			width: ${deskImageSize}${imageUnit};
+			height: ${deskImageSize}${imageUnit};
 		}
 		.${uniqueId} .bdt-content {
-			text-align: ${textAlign}!important;
+			text-align: ${textAlign};
 		}
 		.${uniqueId} .bdt-name {
 			color: ${titleColor}!important;
@@ -339,6 +377,14 @@ function Edit(_ref) {
 			grid-column-gap: ${tabGap}${gapUnit};
 			grid-row-gap: ${tabRowGap}${gapRowUnit};
 		}
+		.${uniqueId} .bdt-item{
+			padding: ${tabItemPadding}${itemPaddingUnit};
+			border-radius: ${tabItemBorderRadius}${itemBorderRadiusUnit};
+		}
+		.${uniqueId} .bdt-image-wrap{
+			width: ${tabImageSize};
+			height: ${tabImageSize};
+		}
 		.${uniqueId} .bdt-name {
 			font-size: ${tabNameFont}${nameFontUnit}!important;
 		}
@@ -359,6 +405,14 @@ function Edit(_ref) {
 			grid-template-columns: repeat(${mobCols}, 1fr);
 			grid-column-gap: ${mobGap}${gapUnit};
 			grid-row-gap: ${mobRowGap}${gapRowUnit};
+		}
+		.${uniqueId} .bdt-item{
+			padding: ${mobItemPadding}${itemPaddingUnit};
+			border-radius: ${mobItemBorderRadius}${itemBorderRadiusUnit};
+		}
+		.${uniqueId} .bdt-image-wrap{
+			width: ${mobImageSize};
+			height: ${mobImageSize};
 		}
 		.${uniqueId} .bdt-name {
 			font-size: ${mobNameFont}${nameFontUnit}!important;
@@ -521,7 +575,9 @@ const {
   DESG_FONT_SIZE,
   DESC_FONT_SIZE,
   RATING_SIZE,
-  IMAGE_SIZE
+  IMAGE_SIZE,
+  ITEM_PADDING,
+  ITEM_BORDER_RADIUS
 } = _constants__WEBPACK_IMPORTED_MODULE_4__;
 
 
@@ -554,18 +610,12 @@ const Inspector = _ref => {
     activeClass: "active-tab",
     initialTabName: "bdt_content",
     tabs: [{
-      name: 'bdt_content',
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content', 'bdt-review-blocks'),
-      className: 'bdt-tab bdt-general'
-    }, {
       name: 'bdt_settings',
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'bdt-review-blocks'),
       className: 'bdt-tab bdt-advanced'
     }]
   }, tabMain => {
-    if (tabMain.name === 'bdt_content') {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null));
-    } else if (tabMain.name === 'bdt_settings') {
+    if (tabMain.name === 'bdt_settings') {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Settings', 'bdt-review-blocks')
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
@@ -623,7 +673,7 @@ const Inspector = _ref => {
             colorSettings: [{
               value: titleColor,
               onChange: value => setAttributes({
-                titleColor: value
+                titleColor: value === undefined ? '#000000' : value
               }),
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Color', 'bdt-review-blocks')
             }, {
@@ -730,7 +780,7 @@ const Inspector = _ref => {
         }]
       }, tabBox => {
         if (tabBox.name === 'bdt_review_normal') {
-          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
             title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),
             initialOpen: false,
             colorSettings: [{
@@ -740,7 +790,21 @@ const Inspector = _ref => {
               }),
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('background Color', 'bdt-review-blocks')
             }]
-          });
+          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'bdt-review-blocks'),
+            controlName: ITEM_PADDING,
+            objAttrs: objAttrs,
+            noUnits: false,
+            min: 1,
+            max: 100
+          }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Radius', 'bdt-review-blocks'),
+            controlName: ITEM_BORDER_RADIUS,
+            objAttrs: objAttrs,
+            noUnits: false,
+            min: 1,
+            max: 100
+          }));
         } else if (tabBox.name === 'bdt_review_hover') {
           return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
             title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'bdt-review-blocks'),

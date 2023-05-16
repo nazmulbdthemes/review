@@ -16,7 +16,7 @@ import './editor.scss';
 import Alignment from '../../controls/alignment/alignment';
 import aligns from '../../options/align';
 const { ResRangleControl } = Controls;
-const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESG_FONT_SIZE, DESC_FONT_SIZE, RATING_SIZE, IMAGE_SIZE } = Constants;
+const { GRID_COLUMNS, GRID_GAP, ROW_GAP, NAME_FONT_SIZE, DESG_FONT_SIZE, DESC_FONT_SIZE, RATING_SIZE, IMAGE_SIZE, ITEM_PADDING, ITEM_BORDER_RADIUS } = Constants;
 
 import objAttributes from './attributes';
 
@@ -32,11 +32,6 @@ const Inspector = ({ attributes, setAttributes }) => {
 					initialTabName="bdt_content"
 					tabs={[
 						{
-							name: 'bdt_content',
-							title: __('Content', 'bdt-review-blocks'),
-							className: 'bdt-tab bdt-general',
-						},
-						{
 							name: 'bdt_settings',
 							title: __('Settings', 'bdt-review-blocks'),
 							className: 'bdt-tab bdt-advanced',
@@ -44,15 +39,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 					]}
 				>
 					{(tabMain) => {
-						if (tabMain.name === 'bdt_content') {
-							return (
-								<Fragment>
-									<InspectorControls>
-										
-									</InspectorControls>
-								</Fragment>
-							);
-						} else if (tabMain.name === 'bdt_settings') {
+						  if (tabMain.name === 'bdt_settings') {
 							return (
 								<Fragment>
 									<PanelBody
@@ -173,7 +160,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 																				setAttributes(
 																					{
 																						titleColor:
-																							value,
+																							( value === undefined ? '#000000' : value )
 																					}
 																				),
 																		label: __(
@@ -424,31 +411,67 @@ const Inspector = ({ attributes, setAttributes }) => {
 													'bdt_review_normal'
 												) {
 													return (
-														<PanelColorSettings
-															title={__(
-																'Color Settings',
-																'bdt-review-blocks'
-															)}
-															initialOpen={false}
-															colorSettings={[
-																{
-																	value: boxBgColor,
-																	onChange: (
-																		value
-																	) =>
-																		setAttributes(
-																			{
-																				boxBgColor:
-																					value,
-																			}
+														<Fragment>
+															<PanelColorSettings
+																title={__(
+																	'Color Settings',
+																	'bdt-review-blocks'
+																)}
+																initialOpen={
+																	false
+																}
+																colorSettings={[
+																	{
+																		value: boxBgColor,
+																		onChange:
+																			(
+																				value
+																			) =>
+																				setAttributes(
+																					{
+																						boxBgColor:
+																							value,
+																					}
+																				),
+																		label: __(
+																			'background Color',
+																			'bdt-review-blocks'
 																		),
-																	label: __(
-																		'background Color',
-																		'bdt-review-blocks'
-																	),
-																},
-															]}
-														/>
+																	},
+																]}
+															/>
+															<ResRangleControl
+																label={__(
+																	'Padding',
+																	'bdt-review-blocks'
+																)}
+																controlName={
+																	ITEM_PADDING
+																}
+																objAttrs={
+																	objAttrs
+																}
+																noUnits={false}
+																min={1}
+																max={100}
+															/>
+															<CardDivider />
+															<ResRangleControl
+																label={__(
+																	'Border Radius',
+																	'bdt-review-blocks'
+																)}
+																controlName={
+																	ITEM_BORDER_RADIUS
+																}
+																objAttrs={
+																	objAttrs
+																}
+																noUnits={false}
+																min={1}
+																max={100}
+															/>
+														</Fragment>
 													);
 												} else if (
 													tabBox.name ===
